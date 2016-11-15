@@ -1,0 +1,18 @@
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\eliteDtoAlexa.exe.config
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.csprojResolveAssemblyReference.cache
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\eliteDtoAlexa.exe
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\eliteDtoAlexa.pdb
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.exe
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.pdb
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\eliteDtoAlexa.exe.manifest
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\eliteDtoAlexa.application
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.exe.manifest
+c:\users\sirau\documents\visual studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.application
+C:\Users\sirau\Documents\Visual Studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\crypto.dll
+C:\Users\sirau\Documents\Visual Studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sirau\Documents\Visual Studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\PubNub-Messaging.dll
+C:\Users\sirau\Documents\Visual Studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\crypto.xml
+C:\Users\sirau\Documents\Visual Studio 2015\Projects\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\eliteDtoAlexa.exe.config
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.exe
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.pdb

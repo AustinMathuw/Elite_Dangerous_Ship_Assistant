@@ -1,0 +1,1 @@
+C:\Users\sirau\Downloads\c-sharp-master\c-sharp-master\windows-store\windows10\PubnubWindowsStore\PubnubWindowsStore\PubnubWindowsStore.csproj;x86
