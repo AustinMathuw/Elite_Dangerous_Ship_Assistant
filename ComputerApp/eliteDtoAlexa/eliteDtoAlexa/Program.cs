@@ -36,24 +36,33 @@ public class Program
         // This will exit automatically if main window closes 
         // due to thread being in the background
         long lastUpdate = 0;
-        while (true)
+        int loop = 0;
+        while (loop == 0)
         {
             Thread.Yield();
             long milliseconds = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
             if (milliseconds - lastUpdate > 5)
             {
                 lastUpdate = milliseconds;
-                string[] fileEntries = Directory.GetFiles(pathTest);
-                string fileName = fileEntries[fileEntries.Length - 1];
-                File.Copy(fileName, Path.Combine(backupDir, "working.log"), true);
-                if (_continuousFileReader == null)
+                try
                 {
-                    _continuousFileReader = new AddedContentReader(Path.Combine(backupDir, "working.log"));
+                    string[] fileEntries = Directory.GetFiles(pathTest);
+                    string fileName = fileEntries[fileEntries.Length - 1];
+                    File.Copy(fileName, Path.Combine(backupDir, "working.log"), true);
+                    if (_continuousFileReader == null)
+                    {
+                        _continuousFileReader = new AddedContentReader(Path.Combine(backupDir, "working.log"));
+                    }
+                    HandleChangedLines();
+                    HandleRecieveCommands();
                 }
-                HandleChangedLines();
-                HandleRecieveCommands();
-
-
+                catch
+                {
+                    Console.WriteLine("I cannot find your Elite Dangerous journal path!");
+                    Console.WriteLine("Press any key to exit...");
+                    Console.ReadLine();
+                    loop = 1;
+                }
             }
         };
     }

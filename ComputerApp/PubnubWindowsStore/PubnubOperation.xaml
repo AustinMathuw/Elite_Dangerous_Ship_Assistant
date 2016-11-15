@@ -38,13 +38,19 @@
 
             <TextBox HorizontalAlignment="Left" Margin="1.333,311,-38,0" TextWrapping="Wrap" Name="txtResult" Text="" VerticalAlignment="Top" Width="350" Height="229" IsReadOnly="True" DoubleTapped="txtResult_DoubleTapped" IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.ColumnSpan="5" Grid.Column="2"/>
             <TextBox HorizontalAlignment="Left" Margin="0.333,30,-37,0" TextWrapping="Wrap" x:Name="txtResult_Copy" Text="" VerticalAlignment="Top" Width="350" Height="230" IsReadOnly="True" DoubleTapped="txtResult_DoubleTapped" IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.ColumnSpan="5" Grid.Column="2"/>
-            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Margin="0,-7,-20,559" Text="Publish Feed" Grid.ColumnSpan="7"/>
-            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Margin="2,274,-30,278" Text="Subscribe Feed" Grid.ColumnSpan="5" Grid.Column="2" SelectionChanged="TextBlock_SelectionChanged"/>
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Margin="1,-7,-29,559" Text="Publish Feed" Grid.ColumnSpan="5" Grid.Column="2"/>
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Margin="1,274,-29,278" Text="Subscribe Feed" Grid.ColumnSpan="5" Grid.Column="2" SelectionChanged="TextBlock_SelectionChanged"/>
+            
+            
+            
 
             <!--<ScrollViewer Height="210" HorizontalAlignment="Stretch" Margin="23.5,472,23.5,0" Name="scrollViewerResult" VerticalAlignment="Top" Width="420" Background="#FFCCC6C6" BorderThickness="2" Foreground="#FF0D0D0D" ManipulationMode="Control" UseLayoutRounding="False" BorderBrush="SteelBlue" VerticalScrollBarVisibility="Visible" DoubleTap="scrollViewerResult_DoubleTap">
                 <StackPanel Name="messageStackPanel" Orientation="Vertical"></StackPanel>
             </ScrollViewer>-->
 
+        </Grid>
+        <Grid Grid.Row="2" x:Name="fotter" Margin="19,4,19,8">
+            <Button Content="Back" HorizontalAlignment="Left" Margin="10,552,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
         </Grid>
     </Grid>
 </Page>

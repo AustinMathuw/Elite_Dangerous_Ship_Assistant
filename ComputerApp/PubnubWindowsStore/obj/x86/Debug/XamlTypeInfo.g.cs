@@ -132,37 +132,19 @@ namespace PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[14];
-            _typeNameTable[0] = "PubnubWindowsStore.ChangeUUIDUserControl";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "PubnubWindowsStore.ChannelGroupUserControl";
-            _typeNameTable[3] = "PubnubWindowsStore.HereNowOptionsUserControl";
-            _typeNameTable[4] = "PubnubWindowsStore.MainPage";
-            _typeNameTable[5] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[6] = "PubnubWindowsStore.PAMAuthKeyUserControl";
-            _typeNameTable[7] = "PubnubWindowsStore.PAMChannelGroupUserControl";
-            _typeNameTable[8] = "PubnubWindowsStore.PAMChannelUserControl";
-            _typeNameTable[9] = "PubnubWindowsStore.PublishMessageUserControl";
-            _typeNameTable[10] = "PubnubWindowsStore.PubnubDemoStart";
-            _typeNameTable[11] = "PubnubWindowsStore.PubnubOperation";
-            _typeNameTable[12] = "PubnubWindowsStore.UserStateUserControl";
-            _typeNameTable[13] = "PubnubWindowsStore.WhereNowUserControl";
+            _typeNameTable = new string[5];
+            _typeNameTable[0] = "PubnubWindowsStore.MainPage";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "PubnubWindowsStore.PubnubDemoStart";
+            _typeNameTable[4] = "PubnubWindowsStore.PubnubOperation";
 
-            _typeTable = new global::System.Type[14];
-            _typeTable[0] = typeof(global::PubnubWindowsStore.ChangeUUIDUserControl);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::PubnubWindowsStore.ChannelGroupUserControl);
-            _typeTable[3] = typeof(global::PubnubWindowsStore.HereNowOptionsUserControl);
-            _typeTable[4] = typeof(global::PubnubWindowsStore.MainPage);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[6] = typeof(global::PubnubWindowsStore.PAMAuthKeyUserControl);
-            _typeTable[7] = typeof(global::PubnubWindowsStore.PAMChannelGroupUserControl);
-            _typeTable[8] = typeof(global::PubnubWindowsStore.PAMChannelUserControl);
-            _typeTable[9] = typeof(global::PubnubWindowsStore.PublishMessageUserControl);
-            _typeTable[10] = typeof(global::PubnubWindowsStore.PubnubDemoStart);
-            _typeTable[11] = typeof(global::PubnubWindowsStore.PubnubOperation);
-            _typeTable[12] = typeof(global::PubnubWindowsStore.UserStateUserControl);
-            _typeTable[13] = typeof(global::PubnubWindowsStore.WhereNowUserControl);
+            _typeTable = new global::System.Type[5];
+            _typeTable[0] = typeof(global::PubnubWindowsStore.MainPage);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::PubnubWindowsStore.PubnubDemoStart);
+            _typeTable[4] = typeof(global::PubnubWindowsStore.PubnubOperation);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -197,18 +179,9 @@ namespace PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_ChangeUUIDUserControl() { return new global::PubnubWindowsStore.ChangeUUIDUserControl(); }
-        private object Activate_2_ChannelGroupUserControl() { return new global::PubnubWindowsStore.ChannelGroupUserControl(); }
-        private object Activate_3_HereNowOptionsUserControl() { return new global::PubnubWindowsStore.HereNowOptionsUserControl(); }
-        private object Activate_4_MainPage() { return new global::PubnubWindowsStore.MainPage(); }
-        private object Activate_6_PAMAuthKeyUserControl() { return new global::PubnubWindowsStore.PAMAuthKeyUserControl(); }
-        private object Activate_7_PAMChannelGroupUserControl() { return new global::PubnubWindowsStore.PAMChannelGroupUserControl(); }
-        private object Activate_8_PAMChannelUserControl() { return new global::PubnubWindowsStore.PAMChannelUserControl(); }
-        private object Activate_9_PublishMessageUserControl() { return new global::PubnubWindowsStore.PublishMessageUserControl(); }
-        private object Activate_10_PubnubDemoStart() { return new global::PubnubWindowsStore.PubnubDemoStart(); }
-        private object Activate_11_PubnubOperation() { return new global::PubnubWindowsStore.PubnubOperation(); }
-        private object Activate_12_UserStateUserControl() { return new global::PubnubWindowsStore.UserStateUserControl(); }
-        private object Activate_13_WhereNowUserControl() { return new global::PubnubWindowsStore.WhereNowUserControl(); }
+        private object Activate_0_MainPage() { return new global::PubnubWindowsStore.MainPage(); }
+        private object Activate_3_PubnubDemoStart() { return new global::PubnubWindowsStore.PubnubDemoStart(); }
+        private object Activate_4_PubnubOperation() { return new global::PubnubWindowsStore.PubnubOperation(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -220,94 +193,31 @@ namespace PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  PubnubWindowsStore.ChangeUUIDUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_0_ChangeUUIDUserControl;
+            case 0:   //  PubnubWindowsStore.MainPage
+                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_0_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.UserControl
+            case 1:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  PubnubWindowsStore.ChannelGroupUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_2_ChannelGroupUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 3:   //  PubnubWindowsStore.HereNowOptionsUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_3_HereNowOptionsUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  PubnubWindowsStore.MainPage
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_MainPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 5:   //  Windows.UI.Xaml.Controls.Page
+            case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  PubnubWindowsStore.PAMAuthKeyUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_6_PAMAuthKeyUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 7:   //  PubnubWindowsStore.PAMChannelGroupUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_7_PAMChannelGroupUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 8:   //  PubnubWindowsStore.PAMChannelUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_8_PAMChannelUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 9:   //  PubnubWindowsStore.PublishMessageUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_9_PublishMessageUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 10:   //  PubnubWindowsStore.PubnubDemoStart
+            case 3:   //  PubnubWindowsStore.PubnubDemoStart
                 userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_PubnubDemoStart;
+                userType.Activator = Activate_3_PubnubDemoStart;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  PubnubWindowsStore.PubnubOperation
+            case 4:   //  PubnubWindowsStore.PubnubOperation
                 userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_PubnubOperation;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 12:   //  PubnubWindowsStore.UserStateUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_12_UserStateUserControl;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 13:   //  PubnubWindowsStore.WhereNowUserControl
-                userType = new global::PubnubWindowsStore.PubnubWindowsStore_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_13_WhereNowUserControl;
+                userType.Activator = Activate_4_PubnubOperation;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
