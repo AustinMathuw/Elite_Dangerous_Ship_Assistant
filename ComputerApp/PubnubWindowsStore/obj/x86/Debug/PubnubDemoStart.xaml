@@ -28,7 +28,7 @@
         <Grid x:ConnectionId='1' Grid.Row="1" x:Name="ContentRoot" Margin="0,10,20,-1" Grid.ColumnSpan="3">
             <TextBlock HorizontalAlignment="Left" Margin="8,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Session ID" FontSize="14"/>
             <TextBox x:ConnectionId='2' x:Name="txtChannelName" HorizontalAlignment="Left" Margin="97,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-            <Button x:ConnectionId='3' Content="Continue" HorizontalAlignment="Left" Margin="97,425,0,0" VerticalAlignment="Top"                          />
+            <Button x:ConnectionId='3' Content="Continue" HorizontalAlignment="Left" Margin="97,75,0,0" VerticalAlignment="Top"                          />
 
         </Grid>
     </Grid>

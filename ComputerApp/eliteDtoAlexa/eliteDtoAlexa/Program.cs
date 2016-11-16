@@ -9,6 +9,74 @@ using System.Collections.Generic;
 
 public class Program
 {
+    public class shipInfo
+    {
+        public string Event { get; set; }
+        public Rank rank;
+        public Progress progress;
+        public Docked docked;
+        public Location location;
+        public Touchdown touchdown;
+        public HullDamage hulldamage;
+        public ShieldState shieldstate;
+        public PVPKill pvpkill;
+        public DatalinkScan datalinkscan;
+        public RecieveText recievetext;
+    }
+    public class Rank
+    {
+        public string Combat { get; set; }
+        public string Trade { get; set; }
+        public string Explore { get; set; }
+        public string Empire { get; set; }
+        public string Federation { get; set; }
+        public string CQC { get; set; }
+    }
+    public class Progress
+    {
+        public string Combat { get; set; }
+        public string Trade { get; set; }
+        public string Explore { get; set; }
+        public string Empire { get; set; }
+        public string Federation { get; set; }
+        public string CQC { get; set; }
+    }
+    public class Docked
+    {
+        public bool Dock { get; set; }
+        public string StationName { get; set; }
+        public string StationType { get; set; }
+    }
+    public class Location
+    {
+        public string StarSystem { get; set; }
+        public string Body { get; set; }
+    }
+    public class Touchdown
+    {
+        public bool Landed { get; set; }
+    }
+    public class HullDamage
+    {
+        public decimal Damage { get; set; }
+    }
+    public class ShieldState
+    {
+        public bool ShieldUp { get; set; }
+    }
+    public class PVPKill
+    {
+        public string Victim { get; set; }
+    }
+    public class DatalinkScan
+    {
+        public string Message { get; set; }
+    }
+    public class RecieveText
+    {
+        public string Message { get; set; }
+    }
+
     private static AddedContentReader _continuousFileReader = null;
 
     public string channelShipCommands;
