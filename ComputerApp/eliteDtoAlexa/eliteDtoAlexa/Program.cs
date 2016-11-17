@@ -190,7 +190,15 @@ public class Program
                 {
                     string[] fileEntries = Directory.GetFiles(pathTest);
                     string fileName = fileEntries[fileEntries.Length - 1];
-                    File.Copy(fileName, Path.Combine(backupDir, "working.log"), true);
+                    if (Directory.Exists(backupDir))
+                    {
+                        File.Copy(fileName, Path.Combine(backupDir, "working.log"), true);
+                    } else
+                    {
+                        Directory.CreateDirectory(backupDir);
+                        File.Copy(fileName, Path.Combine(backupDir, "working.log"), true);
+                    }
+                    
                     if (_continuousFileReader == null)
                     {
                         _continuousFileReader = new AddedContentReader(Path.Combine(backupDir, "working.log"));
