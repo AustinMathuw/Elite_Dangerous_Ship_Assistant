@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Security.Permissions;
 using System.Threading;
-
 using PubNubMessaging.Core;
 using System.Collections.Generic;
 using Newtonsoft.Json;
@@ -179,7 +178,7 @@ public class Program
         // due to thread being in the background
         long lastUpdate = 0;
         int loop = 0;
-        while (loop == 0)
+        while (loop < 4)
         {
             Thread.Yield();
             long milliseconds = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
@@ -205,13 +204,17 @@ public class Program
                     }
                     HandleChangedLines();
                     HandleRecieveCommands();
+                    loop = 0;
                 }
                 catch
+                {
+                    loop++;
+                }
+                if(loop == 3)
                 {
                     Console.WriteLine("I cannot find your Elite Dangerous journal path!");
                     Console.WriteLine("Press any key to exit...");
                     Console.ReadLine();
-                    loop = 1;
                 }
             }
         };
@@ -225,7 +228,19 @@ public class Program
             string newLines = _continuousFileReader.GetAddedLine();
             if (newLines != null && newLines.Length > 0)
             {
-                Console.WriteLine("New data: " + newLines);
+                ///See http://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
+                JsonTextReader reader = new JsonTextReader(new StringReader(newLines));
+                while (reader.Read())
+                    {
+                        if (reader.Value != null)
+                        {
+                            Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Token: {0}", reader.TokenType);
+                        }
+                    }
             }
         }
     }
