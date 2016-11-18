@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eliteDtoAlexa.exe" size="13792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="eliteDtoAlexa.exe" size="14816">
       <assemblyIdentity name="eliteDtoAlexa" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KwHU3rtFnKN8dy7xw0tEo9s6TtjL43nlx/0wrfU/Km4=</dsig:DigestValue>
+        <dsig:DigestValue>UglIur6Pyf+ovEoQ1h/sdGhlNeqj0+/Sr8iODnMRDxY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

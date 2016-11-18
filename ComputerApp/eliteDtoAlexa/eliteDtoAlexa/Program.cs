@@ -140,15 +140,17 @@ public class Program
 
     public static void Main()
     {
-        Run();
+        shipInfo shipInfoMaster = new shipInfo();
+        Run(shipInfoMaster);
 
     }
 
+    
 
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-    public static void Run()
+    public static void Run(shipInfo shipInfoMaster)
     {
-        shipInfo shipInfoMaster = new shipInfo();
+        
         shipInfoMaster.Event = "";
         shipInfoMaster.RankBuilder.rank("", "", "", "", "", "");
         shipInfoMaster.ProgressBuilder.progress("", "", "", "", "", "");
@@ -202,7 +204,7 @@ public class Program
                     {
                         _continuousFileReader = new AddedContentReader(Path.Combine(backupDir, "working.log"));
                     }
-                    HandleChangedLines();
+                    HandleChangedLines(shipInfoMaster);
                     HandleRecieveCommands();
                     loop = 0;
                 }
@@ -220,7 +222,7 @@ public class Program
         };
     }
 
-    private static void HandleChangedLines()
+    private static void HandleChangedLines(shipInfo shipInfoMaster)
     {
         if (_continuousFileReader != null && _continuousFileReader.NewDataReady())
         {
@@ -231,7 +233,11 @@ public class Program
                 ///See http://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
                 JsonTextReader reader = new JsonTextReader(new StringReader(newLines));
                 string eventName = "";
-                string[] eventContent;
+                string[] eventContent = new string[0];
+                string[] eventContentAttributes = new string[0];
+                string attributeName = "";
+
+                int arraySize = 0;
 
                 int type = 0;
                 while (reader.Read())
@@ -239,38 +245,102 @@ public class Program
                     
                     if (reader.Value != null)
                     {
-                        /*string check1 = Convert.ToString(reader.TokenType);
+                        string check1 = Convert.ToString(reader.TokenType);
                         string check2 = Convert.ToString(reader.Value);
+                        if (type == 1)
+                        {
+                            eventName = check2;
+                            Console.WriteLine(eventName);
+                            type = 0;
+                        }
+
+                        if (type == 2)
+                        {
+                            type = 0;
+                        }
+                        
                         if (check1 == "PropertyName")
                         {
                             if (check2 == "event")
                             {
                                 type = 1;
                             }
-                            else if (check2 == "From" | check2 == "Message" | check2 == "Message_Localised" |)
+                            else
                             {
+                                attributeName = check2;
                                 type = 2;
                             }
-                        }
-
-                        if (type == 1)
+                        } else if (check2 != eventName && attributeName != "timestamp")
                         {
-                            eventName = check2;
+                            arraySize++;
+                            Array.Resize(ref eventContentAttributes, arraySize);
+                            eventContentAttributes[arraySize - 1] = attributeName;
+                            Array.Resize(ref eventContent, arraySize);
+                            eventContent[arraySize - 1] = check2;
+                            attributeName = "";
                         }
 
-                        if (type == 2)
-                        {
-
-                        }
-                        eventName = Convert.ToString(reader.Value);
-                        Console.WriteLine(eventName);
+                        
+                        
+                        
                         if(reader.Value != null)
                         {
 
-                        } */
-                        Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
+                        }
+                        
                     }
                 }
+                if (eventName == "Rank")
+                {
+
+                }
+                else if (eventName == "Progress")
+                {
+
+                }
+                else if (eventName == "Docked ")
+                {
+
+                }
+                else if (eventName == "Location ")
+                {
+
+                }
+                else if (eventName == "Touchdown ")
+                {
+
+                }
+                else if (eventName == "HullDamage ")
+                {
+
+                }
+                else if (eventName == "ShieldState ")
+                {
+
+                }
+                else if (eventName == "PVPKill ")
+                {
+
+                }
+                else if (eventName == "DatalinkScan ")
+                {
+
+                }
+                else if (eventName == "RecieveText  ")
+                {
+
+                }
+                
+                Console.WriteLine("");
+                if (eventContent != null || eventContent.Length != 0) {
+                    for (int i = 0; i < eventContent.Length; i++)
+                    {
+                        Console.WriteLine("{0}: {1}", eventContentAttributes[i], eventContent[i]);
+                    }
+                }
+                Console.WriteLine("");
+                Console.WriteLine("EVENT DONE");
+                Console.WriteLine("");
             }
         }
     }
