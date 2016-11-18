@@ -230,17 +230,47 @@ public class Program
             {
                 ///See http://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
                 JsonTextReader reader = new JsonTextReader(new StringReader(newLines));
+                string eventName = "";
+                string[] eventContent;
+
+                int type = 0;
                 while (reader.Read())
+                {
+                    
+                    if (reader.Value != null)
                     {
-                        if (reader.Value != null)
+                        /*string check1 = Convert.ToString(reader.TokenType);
+                        string check2 = Convert.ToString(reader.Value);
+                        if (check1 == "PropertyName")
                         {
-                            Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
+                            if (check2 == "event")
+                            {
+                                type = 1;
+                            }
+                            else if (check2 == "From" | check2 == "Message" | check2 == "Message_Localised" |)
+                            {
+                                type = 2;
+                            }
                         }
-                        else
+
+                        if (type == 1)
                         {
-                            Console.WriteLine("Token: {0}", reader.TokenType);
+                            eventName = check2;
                         }
+
+                        if (type == 2)
+                        {
+
+                        }
+                        eventName = Convert.ToString(reader.Value);
+                        Console.WriteLine(eventName);
+                        if(reader.Value != null)
+                        {
+
+                        } */
+                        Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
                     }
+                }
             }
         }
     }
