@@ -13,27 +13,26 @@ public class Program
 {
     public class shipInfo
     {
-        public string Event { get; set; }
-        public Rank RankBuilder = new Rank();
-        public Progress ProgressBuilder = new Progress();
-        public Docked DockedBuilder = new Docked();
-        public Location LocationBuilder = new Location();
-        public Touchdown TouchdownBuilder = new Touchdown();
-        public HullDamage HullDamageBuilder = new HullDamage();
-        public ShieldState ShieldStateBuilder = new ShieldState();
-        public PVPKill PVPKillBuilder = new PVPKill();
-        public DatalinkScan DataLinkscanBuilder = new DatalinkScan();
-        public RecieveText RecieveTextBuilder = new RecieveText();
+        public Rank Rank = new Rank();
+        public Progress Progress = new Progress();
+        public Docked Docked = new Docked();
+        public Location Location = new Location();
+        public Touchdown Touchdown  = new Touchdown();
+        public HullDamage HullDamage  = new HullDamage();
+        public ShieldState ShieldState  = new ShieldState();
+        public PVPKill PVPKill  = new PVPKill();
+        public DatalinkScan DataLinkscan  = new DatalinkScan();
+        public RecieveText RecieveText = new RecieveText();
     }
     public class Rank
     {
-        public string Combat { get; set; }
-        public string Trade { get; set; }
-        public string Explore { get; set; }
-        public string Empire { get; set; }
-        public string Federation { get; set; }
-        public string CQC { get; set; }
-        public void rank(string combat, string trade, string explore, string empire, string federation, string cqc)
+        public int Combat { get; set; }
+        public int Trade { get; set; }
+        public int Explore { get; set; }
+        public int Empire { get; set; }
+        public int Federation { get; set; }
+        public int CQC { get; set; }
+        public void rank(int combat, int trade, int explore, int empire, int federation, int cqc)
         {
             Combat = combat;
             Trade = trade;
@@ -46,13 +45,13 @@ public class Program
     }
     public class Progress
     {
-        public string Combat { get; set; }
-        public string Trade { get; set; }
-        public string Explore { get; set; }
-        public string Empire { get; set; }
-        public string Federation { get; set; }
-        public string CQC { get; set; }
-        public void progress(string combat, string trade, string explore, string empire, string federation, string cqc)
+        public int Combat { get; set; }
+        public int Trade { get; set; }
+        public int Explore { get; set; }
+        public int Empire { get; set; }
+        public int Federation { get; set; }
+        public int CQC { get; set; }
+        public void progress(int combat, int trade, int explore, int empire, int federation, int cqc)
         {
             
             Combat = combat;
@@ -150,23 +149,16 @@ public class Program
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
     public static void Run(shipInfo shipInfoMaster)
     {
-        
-        shipInfoMaster.Event = "";
-        shipInfoMaster.RankBuilder.rank("", "", "", "", "", "");
-        shipInfoMaster.ProgressBuilder.progress("", "", "", "", "", "");
-        shipInfoMaster.DockedBuilder.docked(false, "", "");
-        shipInfoMaster.LocationBuilder.location("", "");
-        shipInfoMaster.TouchdownBuilder.touchdown(false);
-        shipInfoMaster.HullDamageBuilder.hulldamage(0.0);
-        shipInfoMaster.ShieldStateBuilder.shieldstate(true);
-        shipInfoMaster.PVPKillBuilder.pvpkill("");
-        shipInfoMaster.DataLinkscanBuilder.datalinkscan("");
-        shipInfoMaster.RecieveTextBuilder.recievetext("");
-
-        var serializer = new JavaScriptSerializer();
-        var json = serializer.Serialize(shipInfoMaster);
-
-        Console.WriteLine(json);
+        shipInfoMaster.Rank.rank(0, 0, 0, 0, 0, 0);
+        shipInfoMaster.Progress.progress(0, 0, 0, 0, 0, 0);
+        shipInfoMaster.Docked.docked(false, "", "");
+        shipInfoMaster.Location.location("", "");
+        shipInfoMaster.Touchdown.touchdown(false);
+        shipInfoMaster.HullDamage.hulldamage(0.0);
+        shipInfoMaster.ShieldState.shieldstate(true);
+        shipInfoMaster.PVPKill.pvpkill("");
+        shipInfoMaster.DataLinkscan.datalinkscan("");
+        shipInfoMaster.RecieveText.recievetext("");
 
         System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
         string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
@@ -290,54 +282,95 @@ public class Program
                         
                     }
                 }
+                
+                
+                Console.WriteLine("");
+                System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
+                string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+                if (Environment.OSVersion.Version.Major >= 6)
+                {
+                    path = Directory.GetParent(path).ToString();
+                }
+                string pathTest = path + "\\Documents\\Elite Dangerous Ship Assistant";
+                if (!Directory.Exists(pathTest))
+                {
+                    Directory.CreateDirectory(pathTest);
+                    
+                }
+
                 if (eventName == "Rank")
                 {
+                    dynamic[] universalContent = new dynamic[0];
+                    
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = Convert.ToInt32(eventContent[i]);
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Rank.rank(universalContent[0], universalContent[1], universalContent[2], universalContent[3], universalContent[4], universalContent[5]);
 
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "Progress")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = Convert.ToInt32(eventContent[i]);
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Progress.progress(universalContent[0], universalContent[1], universalContent[2], universalContent[3], universalContent[4], universalContent[5]);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
-                else if (eventName == "Docked ")
+                else if (eventName == "Docked")
                 {
 
                 }
-                else if (eventName == "Location ")
+                else if (eventName == "Location")
                 {
 
                 }
-                else if (eventName == "Touchdown ")
+                else if (eventName == "Touchdown")
                 {
 
                 }
-                else if (eventName == "HullDamage ")
+                else if (eventName == "HullDamage")
                 {
 
                 }
-                else if (eventName == "ShieldState ")
+                else if (eventName == "ShieldState")
                 {
 
                 }
-                else if (eventName == "PVPKill ")
+                else if (eventName == "PVPKill")
                 {
 
                 }
-                else if (eventName == "DatalinkScan ")
+                else if (eventName == "DatalinkScan")
                 {
 
                 }
-                else if (eventName == "RecieveText  ")
+                else if (eventName == "RecieveText")
                 {
 
                 }
                 
-                Console.WriteLine("");
-                if (eventContent != null || eventContent.Length != 0) {
-                    for (int i = 0; i < eventContent.Length; i++)
-                    {
-                        Console.WriteLine("{0}: {1}", eventContentAttributes[i], eventContent[i]);
-                    }
-                }
                 Console.WriteLine("");
                 Console.WriteLine("EVENT DONE");
                 Console.WriteLine("");
