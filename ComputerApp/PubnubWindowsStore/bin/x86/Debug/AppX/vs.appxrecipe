@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>5CC21B92B3BCDCFDD1398306A51092C5D484E6042DF0CC07F116D520E0C7463C</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>7E3CB44953BC41557879988E68EA18269A6528A6EBF961BB3752AD0DF765EB9C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8d15133f-ebb4-4554-b114-2205c7af8997_1.0.0.0_x86__pkvxzp9mwgdca</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8d15133f-ebb4-4554-b114-2205c7af8997_pkvxzp9mwgdca!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8d15133f-ebb4-4554-b114-2205c7af8997</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-16T03:19:19.365</Modified>
+      <Modified>2016-11-20T18:18:13.051</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.exe">
       <PackagePath>entrypoint\PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-11-16T03:19:18.597</Modified>
+      <Modified>2016-11-20T18:18:12.811</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
@@ -577,11 +577,11 @@
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-16T03:19:19.149</Modified>
+      <Modified>2016-11-20T18:12:32.512</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\PubnubWindowsStore.exe">
       <PackagePath>PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-11-16T03:19:19.360</Modified>
+      <Modified>2016-11-20T18:18:13.048</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

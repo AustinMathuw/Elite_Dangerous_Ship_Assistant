@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Security;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +19,7 @@ using Windows.UI.Core;
 using Windows.UI;
 using Windows.UI.Popups;
 using System.Threading;
+using Windows.Storage;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace PubnubWindowsStore
@@ -27,33 +29,39 @@ namespace PubnubWindowsStore
     /// </summary>
     public sealed partial class PubnubOperation : Page
     {
-        private static AddedContentReader _continuousFileReader = null;
-        string channel = "";
-        string channelGroup = "";
+
+        string historyResult = "";
+        string publishSend = "";
+        string publishChannel = "";
+        string historyChannel = "";
         PubnubConfigData data = null;
         static Pubnub pubnub = null;
 
         public PubnubOperation()
         {
             this.InitializeComponent();
+            
         }
 
-        /// <summary>
-        /// The methods provided in this section are simply used to allow
-        /// NavigationHelper to respond to the page's navigation methods.
-        /// <para>
-        /// Page specific logic should be placed in event handlers for the  
-        /// <see cref="NavigationHelper.LoadState"/>
-        /// and <see cref="NavigationHelper.SaveState"/>.
-        /// The navigation parameter is available in the LoadState method 
-        /// in addition to page state preserved during an earlier session.
-        /// </para>
-        /// </summary>
-        /// <param name="e">Provides data for navigation methods and event
-        /// handlers that cannot cancel the navigation request.</param>
-        
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+    
+
+    /// <summary>
+    /// The methods provided in this section are simply used to allow
+    /// NavigationHelper to respond to the page's navigation methods.
+    /// <para>
+    /// Page specific logic should be placed in event handlers for the  
+    /// <see cref="NavigationHelper.LoadState"/>
+    /// and <see cref="NavigationHelper.SaveState"/>.
+    /// The navigation parameter is available in the LoadState method 
+    /// in addition to page state preserved during an earlier session.
+    /// </para>
+    /// </summary>
+    /// <param name="e">Provides data for navigation methods and event
+    /// handlers that cannot cancel the navigation request.</param>
+
+    protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             data = e.Parameter as PubnubConfigData;
 
             if (data != null)
@@ -74,20 +82,16 @@ namespace PubnubWindowsStore
                 
 
             }
-
+            mainLoop();
         }
 
         /// <summary>
         /// Callback method captures the response in JSON string format for all operations
         /// </summary>
         /// <param name="result"></param>
-        void PubnubCallbackResult(string result)
-        {
-            DisplayMessageInTextBox(result);
-            //Console.WriteLine("REGULAR CALLBACK:");
-            //Console.WriteLine(result);
-            //Console.WriteLine();
-        }
+        
+
+
 
         /// <summary>
         /// Callback method for error messages
@@ -95,7 +99,7 @@ namespace PubnubWindowsStore
         /// <param name="result"></param>
         void PubnubDisplayErrorMessage(PubnubClientError result)
         {
-            DisplayMessageInTextBox(result.Description);
+            DisplayHistoryMessageInTextBox(result.Description);
 
             switch (result.StatusCode)
             {
@@ -219,35 +223,82 @@ namespace PubnubWindowsStore
             Window.Current.Content = frame;
         }
 
-        private void Subscribe()
+        void PubnubHistoryCallbackResult(string result)
         {
-            channel = data.channelName + "B";
-            DisplayMessageInTextBox("Running Subscribe:");
-            pubnub.Subscribe<string>(channel, PubnubCallbackResult, PubnubConnectCallbackResult, PubnubDisplayErrorMessage);
+
+            updateHistoryResult(result);
+        }
+        
+        public void updateHistoryResult(string result)
+        {
+            if(historyResult != result)
+            {
+                historyResult = result;
+                DisplayHistoryMessageInTextBox(result);
+            }
         }
 
-        void PubnubConnectCallbackResult(string result)
+        void PubnubPublishCallbackResult(string result)
         {
-            DisplayMessageInTextBox("Connect Callback:");
-            DisplayMessageInTextBox(result);
+            
         }
 
         private void PubnubDisconnectCallbackResult(string result)
         {
-            DisplayMessageInTextBox("Disconnect Callback:");
-            DisplayMessageInTextBox(result);
+            
         }
 
-
-        private void btnPublish_Click()
+        private async void mainLoop()
         {
-            channel = data.channelName + "A";
-            string publishMsg = "";
-            bool storeInHistory = true;
-            pubnub.Publish<string>(channel, publishMsg, storeInHistory, PubnubCallbackResult, PubnubDisplayErrorMessage);
+            
+            long lastUpdate = 0;
+            publishChannel = data.channelName + "A";
+            historyChannel = data.channelName + "B";
+            while (true)
+            {
+                long milliseconds = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+                if (milliseconds - lastUpdate > 5)
+                {
+                    lastUpdate = milliseconds;
+                    history(historyChannel);
+                    StorageFile shipInfo = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipData.json");
+
+                    string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
+                    string publishMsg = shipInfoText.Replace("\"", "'").Replace("\\", "");
+                    bool storeInHistory = true;
+                    pubnub.Publish<string>(publishChannel, "HIIIIIIIIIII", storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
+
+                    if (publishSend != publishMsg)
+                    {
+                        publishSend = publishMsg;
+                        string shipInfoTextBox = "";
+                        await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            if (publishMsg.Length > 200)
+                            {
+                                shipInfoTextBox = string.Concat(publishMsg.Substring(0, 200), "..(truncated)");
+                            }
+
+                            if (publishResult.Text.Length > 200)
+                            {
+                                publishResult.Text = string.Concat("(Truncated)..\n", publishResult.Text.Remove(0, 200));
+                            }
+
+                            publishResult.Text += shipInfoTextBox + "\n";
+                            publishResult.Select(publishResult.Text.Length - 1, 1);
+                        });
+                    }
+                    
+                }
+            };
         }
 
-        private async void DisplayMessageInTextBox(string msg)
+        private void history(string historyChannel)
+        {
+            pubnub.DetailedHistory<string>(historyChannel, 1, PubnubHistoryCallbackResult, PubnubDisplayErrorMessage);
+        }
+
+        private async void DisplayHistoryMessageInTextBox(string msg)
         {
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
@@ -256,13 +307,13 @@ namespace PubnubWindowsStore
                     msg = string.Concat(msg.Substring(0, 200), "..(truncated)");
                 }
 
-                if (txtResult.Text.Length > 200)
+                if (subscribeResult.Text.Length > 200)
                 {
-                    txtResult.Text = string.Concat("(Truncated)..\n", txtResult.Text.Remove(0, 200));
+                    subscribeResult.Text = string.Concat("(Truncated)..\n", subscribeResult.Text.Remove(0, 200));
                 }
 
-                txtResult.Text += msg + "\n";
-                txtResult.Select(txtResult.Text.Length - 1, 1);
+                subscribeResult.Text += msg + "\n";
+                subscribeResult.Select(subscribeResult.Text.Length - 1, 1);
             });
         }
 
@@ -302,42 +353,8 @@ namespace PubnubWindowsStore
         {
             if (command.Label == "Delete")
             {
-                txtResult.Text = "";
-            }
-        }
-        public class AddedContentReader
-        {
-
-            private readonly FileStream _fileStream;
-            private readonly StreamReader _reader;
-
-            //Start position is from where to start reading first time. consequent read are managed by the Stream reader
-            public AddedContentReader(string fileName, long startPosition = 0)
-            {
-                //Open the file as FileStream
-                _fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-                _reader = new StreamReader(_fileStream);
-                //Set the starting position
-                _fileStream.Position = startPosition;
-            }
-
-
-            //Get the current offset. You can save this when the application exits and on next reload
-            //set startPosition to value returned by this method to start reading from that location
-            public long CurrentOffset
-            {
-                get { return _fileStream.Position; }
-            }
-
-            public bool NewDataReady()
-            {
-                return (_fileStream.Length >= _fileStream.Position);
-            }
-
-            //Returns the lines added after this function was last called
-            public string GetAddedLine()
-            {
-                return _reader.ReadLine();
+                publishResult.Text = "";
+                subscribeResult.Text = "";
             }
         }
 

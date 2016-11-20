@@ -25,7 +25,7 @@
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,4,19,8">
+        <Grid x:ConnectionId='1' Grid.Row="1" x:Name="ContentRoot" Margin="19,4,19,8">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="8*"/>
@@ -36,10 +36,10 @@
                 <ColumnDefinition Width="43*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox HorizontalAlignment="Left" Margin="1.333,311,-38,0" TextWrapping="Wrap" Name="subscribeResult" Text="" VerticalAlignment="Top" Width="350" Height="229" IsReadOnly="True" DoubleTapped="txtResult_DoubleTapped" IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.ColumnSpan="5" Grid.Column="2"/>
-            <TextBox HorizontalAlignment="Left" Margin="0.333,30,-37,0" TextWrapping="Wrap" x:Name="publishResult" Text="" VerticalAlignment="Top" Width="350" Height="230" IsReadOnly="True" DoubleTapped="txtResult_DoubleTapped" IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.ColumnSpan="5" Grid.Column="2"/>
+            <TextBox x:ConnectionId='4' HorizontalAlignment="Left" Margin="1.333,311,-38,0" TextWrapping="Wrap" Name="subscribeResult" Text="" VerticalAlignment="Top" Width="350" Height="229" IsReadOnly="True"                                       IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.ColumnSpan="5" Grid.Column="2"/>
+            <TextBox x:ConnectionId='5' HorizontalAlignment="Left" Margin="0.333,30,-37,0" TextWrapping="Wrap" x:Name="publishResult" Text="" VerticalAlignment="Top" Width="350" Height="230" IsReadOnly="True"                                       IsHoldingEnabled="False" IsRightTapEnabled="False" Grid.ColumnSpan="5" Grid.Column="2"/>
             <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Margin="1,-7,-29,559" Text="Publish Feed" Grid.ColumnSpan="5" Grid.Column="2"/>
-            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Margin="1,274,-29,278" Text="Subscribe Feed" Grid.ColumnSpan="5" Grid.Column="2" SelectionChanged="TextBlock_SelectionChanged"/>
+            <TextBlock x:ConnectionId='6' Style="{ThemeResource TitleTextBlockStyle}" Margin="1,274,-29,278" Text="Subscribe Feed" Grid.ColumnSpan="5" Grid.Column="2"                                              />
             
             
             
@@ -49,8 +49,9 @@
             </ScrollViewer>-->
 
         </Grid>
-        <Grid Grid.Row="2" x:Name="fotter" Margin="19,4,19,8">
-            <Button Content="Back" HorizontalAlignment="Left" Margin="10,552,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+        <Grid x:ConnectionId='2' Grid.Row="2" x:Name="fotter" Margin="19,4,19,8">
+            <Button x:ConnectionId='3' Content="Back" HorizontalAlignment="Left" Margin="10,552,0,0" VerticalAlignment="Top"                      />
         </Grid>
     </Grid>
 </Page>
+

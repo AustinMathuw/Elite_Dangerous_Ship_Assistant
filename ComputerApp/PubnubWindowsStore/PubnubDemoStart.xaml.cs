@@ -33,8 +33,8 @@ namespace PubnubWindowsStore
             data.ssl = true;
             data.resumeOnReconnect = true;
             data.channelName = txtChannelName.Text.Trim();
-            data.publishKey = ""; ///Your publish key goes here
-            data.subscribeKey = ""; ///Your subscribe key goes here
+            data.publishKey = "pub-c-234c4038-44a7-4173-9fd7-e1f6151c56d7"; ///Your publish key goes here
+            data.subscribeKey = "sub-c-53cc9228-a35d-11e6-a1b1-0619f8945a4f"; ///Your subscribe key goes here
             /*data.subscribeTimeout = 310;
             data.nonSubscribeTimeout = 15;
             data.maxRetries = 10;
