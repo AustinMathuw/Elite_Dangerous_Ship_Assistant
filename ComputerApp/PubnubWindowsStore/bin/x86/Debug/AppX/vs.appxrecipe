@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-20T18:18:13.051</Modified>
+      <Modified>2016-11-20T21:01:38.768</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.exe">
       <PackagePath>entrypoint\PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-11-20T18:18:12.811</Modified>
+      <Modified>2016-11-20T21:01:37.381</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
@@ -577,11 +577,11 @@
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-20T18:12:32.512</Modified>
+      <Modified>2016-11-20T21:01:38.488</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\PubnubWindowsStore.exe">
       <PackagePath>PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-11-20T18:18:13.048</Modified>
+      <Modified>2016-11-20T21:01:38.758</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

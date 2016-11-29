@@ -264,9 +264,9 @@ namespace PubnubWindowsStore
                     StorageFile shipInfo = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipData.json");
 
                     string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
-                    string publishMsg = shipInfoText.Replace("\"", "'").Replace("\\", "");
+                    string publishMsg = shipInfoText.Replace("\\", "");
                     bool storeInHistory = true;
-                    pubnub.Publish<string>(publishChannel, "HIIIIIIIIIII", storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
+                    pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
 
                     if (publishSend != publishMsg)
                     {
