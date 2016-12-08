@@ -21,9 +21,15 @@ public class Program
         public HullDamage HullDamage  = new HullDamage();
         public ShieldState ShieldState  = new ShieldState();
         public PVPKill PVPKill  = new PVPKill();
-        public DatalinkScan DataLinkscan  = new DatalinkScan();
+        public DatalinkScan DataLinkScan  = new DatalinkScan();
         public RecieveText RecieveText = new RecieveText();
     }
+
+    public class shipCommands
+    {
+
+    }
+
     public class Rank
     {
         public int Combat { get; set; }
@@ -66,12 +72,10 @@ public class Program
     {
         public bool Dock { get; set; }
         public string StationName { get; set; }
-        public string StationType { get; set; }
-        public void docked(bool dock, string stationname, string stationtype)
+        public void docked(bool dock, string stationname)
         {
             Dock = dock;
             StationName = stationname;
-            StationType = stationname;
         }
     }
     public class Location
@@ -94,10 +98,10 @@ public class Program
     }
     public class HullDamage
     {
-        public double Damage { get; set; }
-        public void hulldamage(double damage)
+        public double Health { get; set; }
+        public void hulldamage(double health)
         {
-            Damage = damage;
+            Health = health;
         }
     }
     public class ShieldState
@@ -127,9 +131,11 @@ public class Program
     public class RecieveText
     {
         public string Message { get; set; }
-        public void recievetext(string message)
+        public string From { get; set; }
+        public void recievetext(string message, string fromWho)
         {
             Message = message;
+            From = fromWho;
         }
     }
 
@@ -151,14 +157,14 @@ public class Program
     {
         shipInfoMaster.Rank.rank(0, 0, 0, 0, 0, 0);
         shipInfoMaster.Progress.progress(0, 0, 0, 0, 0, 0);
-        shipInfoMaster.Docked.docked(false, "", "");
+        shipInfoMaster.Docked.docked(false, "");
         shipInfoMaster.Location.location("", "");
         shipInfoMaster.Touchdown.touchdown(false);
-        shipInfoMaster.HullDamage.hulldamage(0.0);
+        shipInfoMaster.HullDamage.hulldamage(1.0);
         shipInfoMaster.ShieldState.shieldstate(true);
         shipInfoMaster.PVPKill.pvpkill("");
-        shipInfoMaster.DataLinkscan.datalinkscan("");
-        shipInfoMaster.RecieveText.recievetext("");
+        shipInfoMaster.DataLinkScan.datalinkscan("");
+        shipInfoMaster.RecieveText.recievetext("", "");
 
         System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
         string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
@@ -340,35 +346,257 @@ public class Program
                 }
                 else if (eventName == "Docked")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Docked.docked(true, universalContent[0]);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
+                }
+                else if (eventName == "Undocked")
+                {
+                    dynamic[] universalContent = new dynamic[0];
+
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Docked.docked(false, "");
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "Location")
                 {
+                    dynamic[] universalContent = new dynamic[0];
+                    bool dockTrue = false;
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                            if(eventContentAttributes[i] == "Docked" && universalContent[i] == "true")
+                            {
+                                dockTrue = true;
+                            }
+                        }
+                        //This is where event attributes are built using the predefined object
+                        if (dockTrue)
+                        {
+                            shipInfoMaster.Location.location(universalContent[3], universalContent[14]);
+                            shipInfoMaster.Docked.docked(true, universalContent[1]);
+                        }
+                        else
+                        {
+                            shipInfoMaster.Location.location(universalContent[1], universalContent[12]);
+                        }
+                        
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
+                }
+                else if (eventName == "FSDJump" || eventName == "SupercruiseEntry")
+                {
+                    dynamic[] universalContent = new dynamic[0];
+
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Location.location(universalContent[0], "");
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
+                }
+                else if (eventName == "SupercruiseExit")
+                {
+                    dynamic[] universalContent = new dynamic[0];
+
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Location.location(universalContent[0], universalContent[1]);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "Touchdown")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Touchdown.touchdown(true);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
+                }
+                else if (eventName == "Liftoff")
+                {
+                    dynamic[] universalContent = new dynamic[0];
+
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.Touchdown.touchdown(false);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "HullDamage")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.HullDamage.hulldamage(Convert.ToDouble(universalContent[1]));
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "ShieldState")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.ShieldState.shieldstate(Convert.ToBoolean(universalContent[0]));
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "PVPKill")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.PVPKill.pvpkill(universalContent[0]);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 else if (eventName == "DatalinkScan")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.DataLinkScan.datalinkscan(universalContent[0]);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
-                else if (eventName == "RecieveText")
+                else if (eventName == "ReceiveText")
                 {
+                    dynamic[] universalContent = new dynamic[0];
 
+                    if (eventContent != null || eventContent.Length != 0)
+                    {
+                        //For loop to get all attribtes for event
+                        for (int i = 0; i < eventContent.Length; i++)
+                        {
+                            Array.Resize(ref universalContent, i + 1);
+                            universalContent[i] = eventContent[i];
+                            Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
+                        }
+                        //This is where event attributes are built using the predefined object
+                        shipInfoMaster.RecieveText.recievetext(universalContent[3], universalContent[1]);
+
+                        var json = new JavaScriptSerializer().Serialize(shipInfoMaster);
+                        File.WriteAllText(Path.Combine(pathTest, "shipData.json"), json);
+                    }
                 }
                 
                 Console.WriteLine("");

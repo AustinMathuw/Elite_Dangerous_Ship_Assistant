@@ -260,7 +260,12 @@ namespace PubnubWindowsStore
                 if (milliseconds - lastUpdate > 5)
                 {
                     lastUpdate = milliseconds;
+
+                    //History Info
+
                     history(historyChannel);
+
+                    //Publish Info
                     StorageFile shipInfo = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipData.json");
 
                     string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
@@ -300,6 +305,8 @@ namespace PubnubWindowsStore
 
         private async void DisplayHistoryMessageInTextBox(string msg)
         {
+            StorageFile shipCommand = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipCommand.json");
+
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 if (msg.Length > 200)
