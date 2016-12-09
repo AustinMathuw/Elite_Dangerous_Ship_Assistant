@@ -7,11 +7,11 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="8d15133f-ebb4-4554-b114-2205c7af8997" Publisher="CN=pandu" Version="1.0.0.0" ProcessorArchitecture="x86" />
+  <Identity Name="8d15133f-ebb4-4554-b114-2205c7af8997" Publisher="CN=sirau" Version="1.0.15.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="8d15133f-ebb4-4554-b114-2205c7af8997" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>PubnubWindowsStore</DisplayName>
-    <PublisherDisplayName>pandu</PublisherDisplayName>
+    <PublisherDisplayName>me</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>

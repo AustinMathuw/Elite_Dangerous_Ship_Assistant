@@ -1,0 +1,2 @@
+obj\x64\Release\filemap.pri
+obj\x64\Release\filemap.map.txt

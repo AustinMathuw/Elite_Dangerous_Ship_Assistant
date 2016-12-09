@@ -99,7 +99,7 @@ namespace PubnubWindowsStore
         /// <param name="result"></param>
         void PubnubDisplayErrorMessage(PubnubClientError result)
         {
-            DisplayHistoryMessageInTextBox(result.Description);
+            //DisplayHistoryMessageInTextBox(result.Description);
 
             switch (result.StatusCode)
             {
@@ -250,7 +250,8 @@ namespace PubnubWindowsStore
 
         private async void mainLoop()
         {
-            
+            var shipCommand = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\commands.json");
+            await FileIO.WriteTextAsync(shipCommand,"");
             long lastUpdate = 0;
             publishChannel = data.channelName + "A";
             historyChannel = data.channelName + "B";
@@ -262,66 +263,112 @@ namespace PubnubWindowsStore
                     lastUpdate = milliseconds;
 
                     //History Info
-
-                    history(historyChannel);
-
-                    //Publish Info
-                    StorageFile shipInfo = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipData.json");
-
-                    string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
-                    string publishMsg = shipInfoText.Replace("\\", "");
-                    bool storeInHistory = true;
-                    pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
-
-                    if (publishSend != publishMsg)
+                    try
                     {
-                        publishSend = publishMsg;
-                        string shipInfoTextBox = "";
-                        await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                            if (publishMsg.Length > 200)
-                            {
-                                shipInfoTextBox = string.Concat(publishMsg.Substring(0, 200), "..(truncated)");
-                            }
+                        history(historyChannel);
+                    }
+                    catch
+                    {
 
-                            if (publishResult.Text.Length > 200)
-                            {
-                                publishResult.Text = string.Concat("(Truncated)..\n", publishResult.Text.Remove(0, 200));
-                            }
-
-                            publishResult.Text += shipInfoTextBox + "\n";
-                            publishResult.Select(publishResult.Text.Length - 1, 1);
-                        });
                     }
                     
+
+                    //Publish Info
+                    try
+                    {
+                        StorageFile shipInfo = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipData.json");
+
+                        string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
+                        string publishMsg = shipInfoText.Replace("\\", "");
+                        bool storeInHistory = true;
+                        pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
+
+                        if (publishSend != publishMsg)
+                        {
+                            publishSend = publishMsg;
+                            string shipInfoTextBox = "";
+                            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                            {
+                                if (publishMsg.Length > 200)
+                                {
+                                    shipInfoTextBox = string.Concat(publishMsg.Substring(0, 200), "..(truncated)");
+                                }
+
+                                if (publishResult.Text.Length > 200)
+                                {
+                                    publishResult.Text = string.Concat("(Truncated)..\n", publishResult.Text.Remove(0, 200));
+                                }
+
+                                publishResult.Text += shipInfoTextBox + "\n";
+                                publishResult.Select(publishResult.Text.Length - 1, 1);
+                            });
+                        }
+                    }
+                    catch
+                    {
+
+                    }
                 }
             };
         }
 
         private void history(string historyChannel)
         {
-            pubnub.DetailedHistory<string>(historyChannel, 1, PubnubHistoryCallbackResult, PubnubDisplayErrorMessage);
+            pubnub.DetailedHistory<string>(historyChannel, 1, true, PubnubHistoryCallbackResult, PubnubDisplayErrorMessage);
         }
 
         private async void DisplayHistoryMessageInTextBox(string msg)
         {
-            StorageFile shipCommand = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\shipCommand.json");
+            var shipCommand = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\commands.json");
+
+            var folder = await KnownFolders.DocumentsLibrary.GetFolderAsync("Elite Dangerous Ship Assistant");
+
+            string path = shipCommand.Path;
+
+            try
+            {
+                File.AppendAllText(path, Environment.NewLine + msg);
+            }
+            catch
+            {
+
+            }
+
+            try
+            {
+                await shipCommand.CopyAsync(folder, "commandsTo.json");
+            }
+            catch
+            {
+                try
+                {
+                    var shipTo = await folder.GetFileAsync("commandsTo.json");
+                    await shipTo.DeleteAsync();
+                    await shipCommand.CopyAsync(folder, "commandsTo.json");
+                }
+                catch
+                {
+
+                }
+            }
+            
 
             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                if (msg.Length > 200)
                 {
-                    msg = string.Concat(msg.Substring(0, 200), "..(truncated)");
-                }
+                    if (msg.Length > 200)
+                    {
+                        msg = string.Concat(msg.Substring(0, 200), "..(truncated)");
+                    }
 
-                if (subscribeResult.Text.Length > 200)
-                {
-                    subscribeResult.Text = string.Concat("(Truncated)..\n", subscribeResult.Text.Remove(0, 200));
-                }
+                    if (subscribeResult.Text.Length > 200)
+                    {
+                        subscribeResult.Text = string.Concat("(Truncated)..\n", subscribeResult.Text.Remove(0, 200));
+                    }
 
-                subscribeResult.Text += msg + "\n";
-                subscribeResult.Select(subscribeResult.Text.Length - 1, 1);
-            });
+                    subscribeResult.Text += msg + "\n";
+                    subscribeResult.Select(subscribeResult.Text.Length - 1, 1);
+                });
+            
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)

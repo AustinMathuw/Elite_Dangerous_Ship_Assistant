@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-zh-hant"
+"ResourceDimensions"		"language-zh-tw"
+
+[Files]
+"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\split.language-zh-hant.pri"			"resources.pri"

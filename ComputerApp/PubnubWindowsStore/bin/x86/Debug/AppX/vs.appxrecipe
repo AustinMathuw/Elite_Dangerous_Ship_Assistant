@@ -9,32 +9,32 @@
     <SolutionConfiguration>Debug|x86</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>8d15133f-ebb4-4554-b114-2205c7af8997</PackageIdentityName>
-    <PackageIdentityPublisher>CN=pandu</PackageIdentityPublisher>
+    <PackageIdentityPublisher>CN=sirau</PackageIdentityPublisher>
     <IntermediateOutputPath>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>7E3CB44953BC41557879988E68EA18269A6528A6EBF961BB3752AD0DF765EB9C</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>8d15133f-ebb4-4554-b114-2205c7af8997_1.0.0.0_x86__pkvxzp9mwgdca</RegisteredPackageMoniker>
-    <RegisteredUserModeAppID>8d15133f-ebb4-4554-b114-2205c7af8997_pkvxzp9mwgdca!App</RegisteredUserModeAppID>
+    <RegisteredManifestChecksum>A78A8D0872BC8CE1C9AAB1EF781E47557A8CB221F431745E60AB2F9EDCD79700</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>8d15133f-ebb4-4554-b114-2205c7af8997_1.0.15.0_x86__pennsxfy7e5pp</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>8d15133f-ebb4-4554-b114-2205c7af8997_pennsxfy7e5pp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8d15133f-ebb4-4554-b114-2205c7af8997</RegisteredPackageID>
-    <RegisteredPackagePublisher>CN=pandu</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredPackagePublisher>CN=sirau</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.15.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
     <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-07T03:07:06.045</Modified>
+      <Modified>2016-12-09T04:16:25.249</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.exe">
       <PackagePath>entrypoint\PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-12-07T03:07:04.483</Modified>
+      <Modified>2016-12-09T04:16:24.781</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
@@ -568,7 +568,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.xr.xml">
       <PackagePath>PubnubWindowsStore.xr.xml</PackagePath>
-      <Modified>2016-11-15T22:29:43.518</Modified>
+      <Modified>2016-12-08T06:13:12.394</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -577,11 +577,11 @@
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-07T03:07:05.675</Modified>
+      <Modified>2016-12-08T23:48:51.663</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\PubnubWindowsStore.exe">
       <PackagePath>PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-12-07T03:07:06.040</Modified>
+      <Modified>2016-12-09T04:16:25.243</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

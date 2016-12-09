@@ -1,0 +1,2 @@
+MainPackage=C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\ARM\Debug\PubnubWindowsStore_1.0.9.0_ARM_Debug.appx
+SymbolPackage=C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\AppPackages\PubnubWindowsStore_1.0.9.0_Debug_Test\PubnubWindowsStore_1.0.9.0_ARM_Debug.appxsym

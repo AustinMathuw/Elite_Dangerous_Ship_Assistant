@@ -1,0 +1,6 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.language-ja"
+"ResourceDimensions"		"language-ja-jp"
+
+[Files]
+"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x64\Debug\split.language-ja.pri"			"resources.pri"

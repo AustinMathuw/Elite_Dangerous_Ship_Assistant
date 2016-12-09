@@ -8,9 +8,14 @@ using PubNubMessaging.Core;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 public class Program
 {
+    [DllImport("User32.dll")]
+    static extern int SetForegroundWindow(IntPtr point);
     public class shipInfo
     {
         public Rank Rank = new Rank();
@@ -27,7 +32,7 @@ public class Program
 
     public class shipCommands
     {
-
+        public string command { get; set; }
     }
 
     public class Rank
@@ -139,22 +144,26 @@ public class Program
         }
     }
 
-    private static AddedContentReader _continuousFileReader = null;
+    private static AddedContentReader _continuousFileReaderShip = null;
+    private static AddedContentReader _continuousFileReaderCommands = null;
 
     public string channelShipCommands;
 
     public static void Main()
     {
         shipInfo shipInfoMaster = new shipInfo();
-        Run(shipInfoMaster);
+        shipCommands shipCommandsMaster = new shipCommands();
+        
+        Run(shipInfoMaster, shipCommandsMaster);
 
     }
 
     
 
     [PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
-    public static void Run(shipInfo shipInfoMaster)
+    public static void Run(shipInfo shipInfoMaster, shipCommands shipCommandsMaster)
     {
+        shipCommandsMaster.command = "";
         shipInfoMaster.Rank.rank(0, 0, 0, 0, 0, 0);
         shipInfoMaster.Progress.progress(0, 0, 0, 0, 0, 0);
         shipInfoMaster.Docked.docked(false, "");
@@ -166,7 +175,7 @@ public class Program
         shipInfoMaster.DataLinkScan.datalinkscan("");
         shipInfoMaster.RecieveText.recievetext("", "");
 
-        System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
+        
         string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
         if (Environment.OSVersion.Version.Major >= 6)
         {
@@ -174,6 +183,13 @@ public class Program
         }
         string pathTest = path + "\\Saved Games\\Frontier Developments\\Elite Dangerous";
         string backupDir = pathTest + "\\temp";
+        
+        string pathDoc = path + "\\Documents\\Elite Dangerous Ship Assistant";
+        if (!Directory.Exists(pathDoc))
+        {
+            Directory.CreateDirectory(pathDoc);
+        }
+
         // This will exit automatically if main window closes 
         // due to thread being in the background
         long lastUpdate = 0;
@@ -198,12 +214,33 @@ public class Program
                         File.Copy(fileName, Path.Combine(backupDir, "working.log"), true);
                     }
                     
-                    if (_continuousFileReader == null)
+                    if (_continuousFileReaderShip == null)
                     {
-                        _continuousFileReader = new AddedContentReader(Path.Combine(backupDir, "working.log"));
+                        _continuousFileReaderShip = new AddedContentReader(Path.Combine(backupDir, "working.log"));
                     }
-                    HandleChangedLines(shipInfoMaster);
-                    HandleRecieveCommands();
+
+                    try
+                    {
+                        File.Copy(Path.Combine(pathDoc, "commandsTo.json"), Path.Combine(pathDoc, "commandsRead.json"), true);
+                    } catch
+                    {
+
+                    }
+
+                    try
+                    {
+                        if (_continuousFileReaderCommands == null)
+                        {
+                            _continuousFileReaderCommands = new AddedContentReader(Path.Combine(pathDoc, "commandsRead.json"));
+                        }
+                    }
+                    catch
+                    {
+
+                    }
+                    
+                    HandleChangedLinesShip(shipInfoMaster);
+                    HandleRecieveCommands(shipCommandsMaster);
                     loop = 0;
                 }
                 catch
@@ -220,12 +257,421 @@ public class Program
         };
     }
 
-    private static void HandleChangedLines(shipInfo shipInfoMaster)
+    private static void HandleRecieveCommands(shipCommands shipCommandsMaster)
     {
-        if (_continuousFileReader != null && _continuousFileReader.NewDataReady())
+        if (_continuousFileReaderCommands != null && _continuousFileReaderCommands.NewDataReady())
         {
             // Specify what is done when a file is changed, created, or deleted.
-            string newLines = _continuousFileReader.GetAddedLine();
+            string newLines = _continuousFileReaderCommands.GetAddedLine();
+            if (newLines != null && newLines.Length > 0)
+            {
+                //Process p = Process.GetProcessesByName("notepad").FirstOrDefault();
+                //if (p != null)
+                //{
+                //    IntPtr h = p.MainWindowHandle;
+                //    SetForegroundWindow(h);
+                //    //SendKeys.SendWait("k");
+                //}
+
+                string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
+                if (Environment.OSVersion.Version.Major >= 6)
+                {
+                    path = Directory.GetParent(path).ToString();
+                }
+                string pathDoc = path + "\\Documents\\Elite Dangerous Ship Assistant";
+                if (!Directory.Exists(pathDoc))
+                {
+                    Directory.CreateDirectory(pathDoc);
+
+                }
+                ///See http://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
+                ///
+
+                
+
+                //string fileinfo = File.ReadAllText(Path.Combine(pathDoc, "commandsRead.json"));
+                //Console.WriteLine(fileinfo);
+
+                JsonTextReader reader = new JsonTextReader(new StringReader(newLines));
+
+                string commandName = "";
+                string oldTime = "";
+                string token = "";
+                int test = 0;
+
+                while (reader.Read())
+                {
+
+                    if (reader.Value != null)
+                    {
+                        token = Convert.ToString(reader.TokenType);
+                        commandName = Convert.ToString(reader.Value);
+
+                        if (test == 2)
+                        {
+                            if(commandName != oldTime)
+                            {
+                                if (shipCommandsMaster.command == "boost")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("boost");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "balencePower")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("balencePower");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "cancelDocking")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("cancelDocking");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "cargoScan")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("cargoScan");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "deployChaff")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("deployChaff");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "deployHardpoints")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("deployHardpoints");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "deployLandingGear")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("deployLandingGear");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "deployCargoScoop")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("deployCargoScoop");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "deploySRV")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("deploySRV");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "exitFramshift")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("exitFramshift");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "exitCruise")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("exitCruise");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "powerToEngines")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("powerToEngines");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "powerToSystems")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("powerToSystems");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "powerToWeapons")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("powerToWeapons");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "emergencyStop")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("emergencyStop");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "engageFrameshift")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("engageFrameshift");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "engageCruise")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("engageCruise");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "fightAssistOff")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("fightAssistOff");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "fightAssistOn")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("fightAssistOn");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "targetEnemy")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("targetEnemy");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "screenshot")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("screenshot");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "launch")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("launch");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "lightsOff")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("lightsOff");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "lightsOn")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("lightsOn");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward100")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward100");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward90")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward90");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward80")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward80");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward75")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward75");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward70")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward70");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward60")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward60");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward50")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward50");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward40")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward40");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward30")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward30");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward25")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward25");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward20")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward20");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesForward10")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesForward10");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "nextFireGroup")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("nextFireGroup");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "nextFireGroup")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("nextFireGroup");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "nextSystem")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("nextSystem");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "nextShip")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("nextShip");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "prevFireGroup")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("prevFireGroup");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "prevHostile")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("prevHostile");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "prevShip")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("prevShip");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "requestDocking")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("requestDocking");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "centerHeadset")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("centerHeadset");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "retractHardpoints")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("retractHardpoints");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "retractLandingGear")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("retractLandingGear");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "retractCargoScoop")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("retractCargoScoop");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesBack100")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesBack100");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesBack75")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesBack75");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesBack50")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesBack50");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "enginesBack25")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("enginesBack25");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "SRVRecovery")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("SRVRecovery");
+                                    Console.ResetColor();
+                                }
+                                else if (shipCommandsMaster.command == "cutEngines")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("cutEngines");
+                                    Console.ResetColor();
+                                }
+                            }
+                            test = 0;
+                        }
+
+                        if (commandName == "timetoken")
+                        {
+                            test = 2;
+                        }
+
+                        if (test == 1)
+                        {
+                            shipCommandsMaster.command = commandName;
+                            
+                        }
+
+                        if (commandName == "command")
+                        {
+
+                            test = 1;
+                        }
+
+                        if (reader.Value != null)
+                        {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private static void HandleChangedLinesShip(shipInfo shipInfoMaster)
+    {
+        if (_continuousFileReaderShip != null && _continuousFileReaderShip.NewDataReady())
+        {
+            // Specify what is done when a file is changed, created, or deleted.
+            string newLines = _continuousFileReaderShip.GetAddedLine();
             if (newLines != null && newLines.Length > 0)
             {
                 ///See http://www.newtonsoft.com/json/help/html/ReadingWritingJSON.htm
@@ -291,7 +737,6 @@ public class Program
                 
                 
                 Console.WriteLine("");
-                System.Diagnostics.Process.GetCurrentProcess().PriorityClass = System.Diagnostics.ProcessPriorityClass.RealTime;
                 string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
                 if (Environment.OSVersion.Version.Major >= 6)
                 {
@@ -604,11 +1049,6 @@ public class Program
                 Console.WriteLine("");
             }
         }
-    }
-
-    private static void HandleRecieveCommands()
-    {
-        
     }
 
     public class AddedContentReader
