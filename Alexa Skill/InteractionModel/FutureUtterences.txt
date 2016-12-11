@@ -1,0 +1,787 @@
+Accept
+Affirmative
+Confirm
+
+Afterburners
+Boost
+Full burn
+Boost engines
+
+Are you there
+
+Balance power
+Reset power
+
+Cancel docking
+Cancel docking permission
+Cancel docking request
+
+Cancel
+Close
+Dismiss
+Exit
+
+Cargo Scan
+Scan cargo
+Target cargo
+
+Cargo
+Cargo hold
+Cargo bay
+Storage
+Storage bay
+Inventory
+
+Chat settings
+
+Clear the mass lock
+
+Clearance velocity and jump please
+
+Clearance velocity please
+
+Comms closed
+Close comms
+Close comms panel
+Exit comms
+Exit comms panel
+
+Comms feed
+
+Comms open
+Open comms
+Open comms panel
+Comms panel on
+
+Comms panel
+Comms screen
+
+Contacts
+
+Defence protocol alpha
+
+Defence protocol beta
+Defence protocol baiter
+Defence protocol beater
+
+Departure handover
+Clearance 30 metres
+Handover for departure
+
+Deploy beacon
+Wing beacon
+Activate beacon
+Emergency beacon
+Drop the beacon
+
+Deploy chaff
+Drop chaff
+Launch chaff
+
+Deploy hardpoints
+Engage hardpoints
+Deploy weapons
+Engage weapons
+Deploy armaments
+
+Deploy landing gear
+Lower landing gear
+Deploy docking modules
+Lower docking modules
+Landing gear down
+Docking gear down
+Docking modules down
+Deploy landing modules
+
+Deploy scoop
+Deploy cargo scoop
+Scoop down
+Cargo scoop down
+
+Deploy the SRV
+Deploy SRV
+Deploy the buggy
+Deploy buggy
+
+Deploy turret
+
+Disengage jump drive
+Disengage
+Disengage jump
+Exit jump
+Cancel jump
+Cancel jump drive
+Disable jump drive
+Disengage frame shift
+Disengage frame shift drive
+Disable frame shift drive
+
+Disengage supercruise
+Cancel supercruise
+Disable supercruise
+Exit supercruise
+Disengage cruise
+Exit cruise
+Disable cruise
+Cancel cruise
+
+Dismiss the ship
+Take the ship into orbit
+Leave the L Z
+Take off and stand by
+Take care of the ship
+
+Divert power to engines
+Power to engines
+Engines full power
+
+Divert power to systems
+Power to systems
+Systems full power
+Divert power to shields
+Power to shields
+Shields full power
+
+Divert power to weapons
+Power to weapons
+Weapons full power
+
+Docking speed
+Safety dock
+Slow for docking
+
+Emergency stop
+
+Engage exit protocols
+ confirm exit protocols
+
+Engage jump drive
+Go to hyperspace
+Enable jump drive
+Go to jump
+Make the jump
+Engage frame shift
+Engage frame shift drive
+
+Engage supercruise
+Go to supercruise
+Enable supercruise
+Supercruise drive
+
+Exit map
+Exit the map
+Close map
+Close the map
+Exit cartography
+Close cartography
+
+External camera
+External camera mode
+External view mode
+Return camera to ship
+Return cam to ship
+
+Fire Groups
+
+Flight Assist Off
+Disable flight assist
+Disengage flight assist
+Cancel flight assist
+
+Flight Assist On
+Enable flight assist
+Engage flight assist
+
+Full impulse
+Maximum impulse
+
+Functions
+
+Get a picture of that
+Take a high rez photo
+Delightful view
+That's very pretty isn't it
+Take another photo
+Take a photo please
+
+Get clear and engage system jump
+Clear the area and prepare for system jump
+Clear the dock and engage system jump
+
+Get clear and jump
+Clear the area and prepare for jump
+Clear the dock and engage jump
+
+Half impulse
+
+Heatsink
+Deploy heatsink
+Fire heatsink
+Drop heatsink
+
+Hello Kate
+Greetings Kate
+
+Hide galaxy map
+Close galaxy map
+Galactic map off
+Exit stellar cartography
+
+Highest threat
+High priority target
+Target highest threat
+Select highest threat
+Target enemy
+
+Invitations
+
+Launch to orbit
+Surface departure
+Go for launch
+
+Launch
+Start engines
+Prepare for launch
+Prepare for take off
+Okay we can leave now
+We can leave now
+
+Left Panel
+Left screen
+Left monitor
+
+Lights Off
+Spot lights off
+Head lights off
+Proximity lights off
+
+Lights On
+Spot lights on
+Head lights on
+ Proximity lights on
+
+Look ahead
+Look up
+Look forward
+Heads up
+HUD
+Exit panel
+Exit the panel
+Exit screen
+Exit the screen
+Close panel
+Close the panel
+Close screen
+Close the screen
+Finished
+I'm finished now
+
+Main drives eighty percent
+Engines eighty percent
+
+Main drives fifty percent
+Engines fifty percent
+
+Main drives forty percent
+Engines forty percent
+
+Main drives ninety percent
+Engines ninety percent
+
+Main drives one hundred percent
+Main drives hundred percent
+Main drives maximum
+Full speed
+Full speed ahead
+Engines one hundred percent
+Engines hundred percent
+Engines to maximum
+Engines full speed
+
+Main drives seventy five percent
+Engines seventy five percent
+
+Main drives seventy percent
+Engines seventy percent
+
+Main drives sixty percent
+Engines sixty percent
+
+Main drives ten percent
+Engines ten percent
+
+Main drives thirty percent
+Engines thirty percent
+
+Main drives twenty five percent
+Engines twenty five percent
+
+Main drives twenty percent
+Engines twenty percent
+
+Missions
+
+Modules
+
+Navigation
+
+Next fire group
+Next weapons group
+Next weapons
+
+Next hostile
+Select next hostile
+
+Next subsystem
+Next subtarget
+
+Next system in route
+Next destination in route
+Lock next target destination
+Lock on to our next destination
+
+Next target
+Next ship
+Cycle next
+Cycle next target
+Cycle next ship
+
+Next
+Next menu
+Forwards
+Next panel
+Next tab
+
+Previous fire group
+Last fire group
+Previous weapons
+Last weapons
+
+Previous hostile
+Last hostile
+Select last hostile
+Select previous hostile
+
+Previous subsystem
+Last subsystem
+Previous subtarget
+Last subtarget
+
+Previous target
+Last target
+Cycle previous
+Cycle previous target
+Cycle previous ship
+
+Previous
+Previous menu
+Last menu
+Back
+Backwards
+Previous panel
+Last panel
+Previous tab
+Last tab
+
+Quarter impulse
+One quarter impulse 
+
+Recall the ship
+Come and get me
+I'm at the L Z
+Prepare for dust off
+
+Request docking
+Request docking permission
+Request landing permission
+Request a landing pad
+Request a landing bay
+Request a docking pad
+Request a docking bay
+Ask for a landing bay
+Ask for a landing bay please
+Ask for a docking bay
+Ask for a docking bay please
+Ask for a landing pad
+Ask for a landing pad please
+Look for a landing pad
+Look for a landing pad please
+Look for a docking pad
+Look for a docking pad please
+Search for a landing pad
+Search for a landing pad please
+Search for a docking pad
+Search for a docking pad please
+Find a landing pad
+ Find a landing pad please
+Find a docking pad
+Find a docking pad please
+Search for a landing bay
+Search for a docking bay
+Find me a landing bay
+Find me a docking bay
+Find me a landing pad
+Find me a docking pad
+
+Reset all systems
+Run diagnostics
+Check all systems
+All systems check
+Full diagnostic scan
+Initiate diagnostic scan
+Prepare all on board systems
+Reset Panels
+System checks
+Check systems
+System scan
+Check onboard flight systems
+Software debugging
+Run software debugging
+
+Reset rift
+Reset oculus
+Centre rift
+Centre oculus
+Reset rift orientation
+Reset oculus orientation
+Reset orientation
+
+Retract hardpoints
+Disengage hardpoints
+Retract weapons
+Disengage weapons
+Retract armaments
+
+Retract landing gear
+Raise landing gear
+Retract docking modules
+Raise docking modules
+Landing gear up
+Docking gear up
+Docking modules up
+
+Retract scoop
+Retract cargo scoop
+Scoop up
+Cargo scoop up
+
+Retract turret
+
+Reverse fifty percent
+Reverse thrusters fifty percent
+Reverse halfway
+Half reverse
+
+Reverse seventy five percent
+Reverse thrusters seventy five percent
+Reverse three quarters
+Three quarter reverse
+
+Reverse thrusters one hundred percent
+Reverse all thrusters
+Full reverse
+Maximum reverse
+
+Reverse twenty five percent
+Reverse thrusters twenty five percent
+Reverse thrusters one quarter
+Reverse thrusters
+One quarter reverse
+Slow reverse
+Backward thrusters
+
+Right Panel
+Right screen
+Right monitor
+
+Shield cell
+Deploy shield cell
+Engage shield cell
+
+Show galaxy map
+Open galaxy map
+Galaxy map
+Galactic map on
+Open galactic map
+Go to stellar cartography
+
+Silent running off
+Disable silent running
+Open heat vents
+Open the heat vents
+Open the vents
+
+Silent running on
+Rig for silent running
+Close heat vents
+Close the heat vents
+Close the vents
+
+SRV recovery
+Recover SRV
+Recover the SRV
+Bring me aboard
+Open the pod bay doors
+Open the pod bay doors please
+Park the buggy
+
+Status
+
+Stop engines
+Stop thrusters
+Stop everything
+Stop here
+Engines full stop
+Full stop
+Cut all engines
+Engines off
+
+Sub Targets
+Scan subtargets
+Target subsystems
+
+Surface recovery and launch now
+Extraction and launch please
+Extraction and launch immediately
+Emergency extraction and launch
+
+System jump now please
+
+System map off
+Close system map
+Exit system map
+Local map off
+Close local map
+Exit local map
+
+System map on
+Show system map
+Open system map
+Local map on
+Open local map
+System cartography
+
+Tab Backwards 2
+Tab backwards two
+Tab two back
+Back two tabs
+Back two panels
+Two panels back
+Back two
+Two back
+
+Tab Backwards 3
+Tab backwards three
+Tab three back
+Back three tabs
+Back three panels
+Three panels back
+Back three
+Three back
+
+Tab Forward 2
+Forward two
+Forward two tabs
+Two tabs forward
+Two panels forward
+Forward two panels
+Two forward
+
+Tab Forward 3
+Forward three
+Forward three tabs
+Three tabs forward
+Three panels forward
+Forward three panels
+Three forward
+
+Take off
+Clear for take off
+Clear the pad
+Initiate take off
+
+Target
+Lock on
+Lock target
+Target lock
+
+Thank You
+Thank you very much
+Thanks
+
+Three quarter impulse
+
+Thrusters eighty percent
+Eighty percent
+
+Thrusters fifty percent
+Fifty percent
+
+Thrusters forty percent
+Forty percent
+
+Thrusters ninety percent
+Ninety percent
+
+Thrusters one hundred percent
+One hundred percent
+Hundred percent
+
+Thrusters seventy five percent
+Seventy five percent
+
+Thrusters seventy percent
+Seventy percent
+
+Thrusters sixty percent
+Sixty percent
+
+Thrusters ten percent
+Ten percent
+Slow to observation speed
+Observation speed
+Slow down for a look
+
+Thrusters thirty percent
+Thirty percent
+
+Thrusters twenty five percent
+Twenty five percent
+
+Thrusters twenty percent
+Twenty percent
+
+Transactions
+
+Typing mode off
+Typing off
+Keyboard off
+Keyboard mode off
+Disable keyboard
+Disable keyboard mode
+Disable typing
+Disable typing mode
+Disable shortcuts
+Disable hotkeys
+
+Typing mode on
+Typing on
+Keyboard on
+Keyboard mode on
+Enable keyboard
+Enable keyboard mode
+Enable typing
+Enable typing mode
+Enable shortcuts
+Enable hotkeys
+
+Voice control off
+Kate go to sleep
+
+Voice control on
+Kate wake up
+
+What is your name
+What's your name
+What do i call you
+
+Who are you
+
+Who made you
+Who designed you
+Who is your maker
+
+Wing management
+
+Wing-man nav lock
+Lock nav to wing-man
+Follow wing-man
+Follow wing-mate
+Wing-mate nav lock
+Lock nav to wing-mate
+
+Wing-man one nav lock
+Wing-mate one nav lock
+Nav lock to wing-man one
+Nav lock to wing-mate one
+
+Wing-man one
+Select wing-man one
+Wing-mate one
+Select wing-mate one
+
+Wing-man one's target
+Wing-mate one's target
+Select wing-man one's target
+Select wing-mate one's target
+Lock wing-man one's target
+Lock wing-mate one's target
+
+Wing-man three nav lock
+Wing-mate three nav lock
+Nav lock to wing-man three
+Nav lock to wing-mate three
+
+Wing-man three
+Select wing-man three
+Wing-mate three
+Select wing-mate three
+
+Wing-man three's target
+Wing-mate three's target
+Select wing-man three's target
+Select wing-mate three's target
+Lock wing-man three's target
+Lock wing-mate three's target
+
+Wing-man two nav lock
+Wing-mate two nav lock
+Nav lock to wing-man two
+Nav lock to wing-mate two
+
+Wing-man two
+Select wing-man two
+Wing-mate two
+Select wing-mate two
+
+Wing-man two's target
+Wing-mate two's target
+Select wing-man two's target
+Select wing-mate two's target
+Lock wing-man two's target
+Lock wing-mate two's target
+
+Wing-mans target
+Select wing-mans target
+Select wing target
+Lock wing target
+Lock on to wing target
+Lock wing-mans target
+Lock on to wing-mans target
+Wing-mates target
+Select wing-mates target
+Lock wing-mates target
+Lock on to wing-mates target
+Select team target
+Lock team target
+Lock on to team target
+
+Zoom in max
+Zoom in maximum
+Full zoom
+Sensor range to minimum
+Minimum sensor range
+
+Zoom in
+Decrease sensor range
+Decrease sensors
+
+Zoom out Max
+Zoom out maximum
+Full view
+Sensor range to maximum
+Maximum sensor range
+
+Zoom out
+Increase sensor range
+Increase sensors

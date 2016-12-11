@@ -1,0 +1,397 @@
+UnrecognizedIntent ThisIsPurposlyNonSense
+UnrecognizedIntent ThisIsPurposlyNonSense ThisIsPurposlyNonSense
+UnrecognizedIntent ThisIsPurposlyNonSense ThisIsPurposlyNonSense ThisIsPurposlyNonSense
+UnrecognizedIntent ThisIsPurposlyNonSense ThisIsPurposlyNonSense ThisIsPurposlyNonSense ThisIsPurposlyNonSense
+UnrecognizedIntent ThisIsPurposlyNonSense ThisIsPurposlyNonSense ThisIsPurposlyNonSense ThisIsPurposlyNonSense ThisIsPurposlyNonSense
+
+GetSessionIDIntent give me my session id
+
+GetRecentMessageIntent read that message
+GetRecentMessageIntent what did that message say
+GetRecentMessageIntent what did that say
+GetRecentMessageIntent what was that message
+GetRecentMessageIntent read that to me again
+
+WhereAmIIntent Where am I
+WhereAmIIntent What is our location
+WhereAmIIntent Where are we
+
+RankIntent What is my {rank} rank
+RankIntent What is my rank in {rank}
+RankIntent What is my current {rank} rank
+RankIntent What is my current rank in {rank}
+
+ThatsAllIntent Nothing else
+ThatsAllIntent Thats all
+ThatsAllIntent We're done
+ThatsAllIntent We are done
+ThatsAllIntent All done
+
+ThankYouIntent Thank you
+ThankYouIntent Much appreciated
+
+BoostIntent Engage afterburners
+BoostIntent Full burn
+BoostIntent Boost engines
+
+YouThereIntent Are you there
+
+BalencePowerIntent Balance power
+BalencePowerIntent Reset power
+
+CancelDockingIntent Cancel docking
+CancelDockingIntent Cancel docking permission
+CancelDockingIntent Cancel docking request
+
+DeployChaffIntent Deploy chaff
+DeployChaffIntent Drop chaff
+DeployChaffIntent Launch chaff
+
+DeployHardpointsIntent Deploy hardpoints
+DeployHardpointsIntent Engage hardpoints
+DeployHardpointsIntent Deploy weapons
+DeployHardpointsIntent Engage weapons
+DeployHardpointsIntent Deploy armaments
+
+DeployLandingGearIntent Deploy landing gear
+DeployLandingGearIntent Lower landing gear
+DeployLandingGearIntent Deploy docking modules
+DeployLandingGearIntent Lower docking modules
+DeployLandingGearIntent Landing gear down
+DeployLandingGearIntent Docking gear down
+DeployLandingGearIntent Docking modules down
+DeployLandingGearIntent Deploy landing modules
+
+DeployCargoScoopIntent Deploy scoop
+DeployCargoScoopIntent Deploy cargo scoop
+DeployCargoScoopIntent Scoop down
+DeployCargoScoopIntent Cargo scoop down
+
+DeploySRVIntent Deploy the SRV
+DeploySRVIntent Deploy SRV
+DeploySRVIntent Deploy the buggy
+DeploySRVIntent Deploy buggy
+
+ExitFrameShiftDrive Disengage jump drive
+ExitFrameShiftDrive Disengage jump
+ExitFrameShiftDrive Exit jump
+ExitFrameShiftDrive Cancel jump
+ExitFrameShiftDrive Cancel jump drive
+ExitFrameShiftDrive Disable jump drive
+ExitFrameShiftDrive Disengage frame shift
+ExitFrameShiftDrive Disengage frame shift drive
+ExitFrameShiftDrive Disable frame shift drive
+
+ExitCruiseIntent Disengage supercruise
+ExitCruiseIntent Cancel supercruise
+ExitCruiseIntent Disable supercruise
+ExitCruiseIntent Exit supercruise
+ExitCruiseIntent Disengage cruise
+ExitCruiseIntent Exit cruise
+ExitCruiseIntent Disable cruise
+ExitCruiseIntent Cancel cruise
+
+PowerToEnginesIntent Divert power to engines
+PowerToEnginesIntent Power to engines
+PowerToEnginesIntent Engines full power
+
+PowertoSystemsIntent Divert power to systems
+PowertoSystemsIntent Power to systems
+PowertoSystemsIntent Systems full power
+PowertoSystemsIntent Divert power to shields
+PowertoSystemsIntent Power to shields
+PowertoSystemsIntent Shields full power
+
+PowerToWeaponsIntent Divert power to weapons
+PowerToWeaponsIntent Power to weapons
+PowerToWeaponsIntent Weapons full power
+
+EmergencyStopIntent Emergency stop
+EmergencyStopIntent Engage exit protocols
+EmergencyStopIntent Confirm exit protocols
+
+EngageFrameShiftDrive Engage jump drive
+EngageFrameShiftDrive Go to hyperspace
+EngageFrameShiftDrive Enable jump drive
+EngageFrameShiftDrive Go to jump
+EngageFrameShiftDrive Make the jump
+EngageFrameShiftDrive Engage frame shift
+EngageFrameShiftDrive Engage frame shift drive
+
+EngageCruiseIntent Engage supercruise
+EngageCruiseIntent Go to supercruise
+EngageCruiseIntent Enable supercruise
+EngageCruiseIntent Supercruise drive
+
+FlightAssistOffIntent Flight Assist Off
+FlightAssistOffIntent Disable flight assist
+FlightAssistOffIntent Disengage flight assist
+FlightAssistOffIntent Cancel flight assist
+
+FlightAssistOnIntent Flight Assist On
+FlightAssistOnIntent Enable flight assist
+FlightAssistOnIntent Engage flight assist
+
+ScreenshotIntent Take a high rez photo
+ScreenshotIntent Delightful view
+ScreenshotIntent That's very pretty isn't it
+ScreenshotIntent Take another photo
+ScreenshotIntent Take a photo please
+
+TargetEnemyIntent Highest threat
+TargetEnemyIntent High priority target
+TargetEnemyIntent Target highest threat
+TargetEnemyIntent Select highest threat
+TargetEnemyIntent Target enemy
+
+LaunchIntent Take off
+LaunchIntent Initiate launch
+LaunchIntent Clear for take off
+LaunchIntent Clear the pad
+LaunchIntent Initiate take off
+LaunchIntent Start engines
+LaunchIntent Prepare for launch
+LaunchIntent Prepare for take off
+LaunchIntent We can leave now
+
+LightsOffIntent Lights Off
+LightsOffIntent Spot lights off
+LightsOffIntent Head lights off
+LightsOffIntent Proximity lights off
+
+LightsOnIntent Lights On
+LightsOnIntent Spot lights on
+LightsOnIntent Head lights on
+LightsOnIntent Proximity lights on
+
+EnginesForwardEightyPercentIntent Main drives eighty percent
+EnginesForwardEightyPercentIntent Engines eighty percent
+EnginesForwardEightyPercentIntent Thrusters eighty percent
+EnginesForwardEightyPercentIntent Eighty percent
+
+EnginesForwardFiftyPercentIntent Main drives fifty percent
+EnginesForwardFiftyPercentIntent Engines fifty percent
+EnginesForwardFiftyPercentIntent Half impulse
+EnginesForwardFiftyPercentIntent Thrusters fifty percent
+EnginesForwardFiftyPercentIntent Fifty percent
+
+EnginesForwardFortyPercentIntent Main drives forty percent
+EnginesForwardFortyPercentIntent Engines forty percent
+EnginesForwardFortyPercentIntent Thrusters forty percent
+EnginesForwardFortyPercentIntent Forty percent
+
+EnginesForwardNintyPercentIntent Main drives ninety percent
+EnginesForwardNintyPercentIntent Engines ninety percent
+EnginesForwardNintyPercentIntent Thrusters ninety percent
+EnginesForwardNintyPercentIntent Ninety percent
+
+EnginesForwardOneHundredPercentIntent Main drives one hundred percent
+EnginesForwardOneHundredPercentIntent Main drives hundred percent
+EnginesForwardOneHundredPercentIntent Main drives maximum
+EnginesForwardOneHundredPercentIntent Full speed
+EnginesForwardOneHundredPercentIntent Full speed ahead
+EnginesForwardOneHundredPercentIntent Engines one hundred percent
+EnginesForwardOneHundredPercentIntent Engines hundred percent
+EnginesForwardOneHundredPercentIntent Engines to maximum
+EnginesForwardOneHundredPercentIntent Engines full speed
+EnginesForwardOneHundredPercentIntent Full impulse
+EnginesForwardOneHundredPercentIntent Maximum impulse
+EnginesForwardOneHundredPercentIntent Thrusters one hundred percent
+EnginesForwardOneHundredPercentIntent One hundred percent
+EnginesForwardOneHundredPercentIntent Hundred percent
+
+EnginesForwardSeventyFivePercentIntent Main drives seventy five percent
+EnginesForwardSeventyFivePercentIntent Engines seventy five percent
+EnginesForwardSeventyFivePercentIntent Three quarter impulse
+EnginesForwardSeventyFivePercentIntent Thrusters seventy five percent
+EnginesForwardSeventyFivePercentIntent Seventy five percent
+
+EnginesForwardSeventyPercentIntent Main drives seventy percent
+EnginesForwardSeventyPercentIntent Engines seventy percent
+EnginesForwardSeventyPercentIntent Thrusters seventy percent
+EnginesForwardSeventyPercentIntent Seventy percent
+
+EnginesForwardSixtyPercentIntent Main drives sixty percent
+EnginesForwardSixtyPercentIntent Engines sixty percent
+EnginesForwardSixtyPercentIntent Thrusters sixty percent
+EnginesForwardSixtyPercentIntent Sixty percent
+
+EnginesForwardTenPercentIntent Main drives ten percent
+EnginesForwardTenPercentIntent Engines ten percent
+EnginesForwardTenPercentIntent Thrusters ten percent
+EnginesForwardTenPercentIntent Ten percent
+EnginesForwardTenPercentIntent Slow to observation speed
+EnginesForwardTenPercentIntent Observation speed
+EnginesForwardTenPercentIntent Slow down for a look
+
+EnginesForwardThirtyPercentIntent Main drives thirty percent
+EnginesForwardThirtyPercentIntent Engines thirty percent
+EnginesForwardThirtyPercentIntent Thrusters thirty percent
+EnginesForwardThirtyPercentIntent Thirty percent
+
+EnginesForwardTwentyFivePercentIntent Main drives twenty five percent
+EnginesForwardTwentyFivePercentIntent Engines twenty five percent
+EnginesForwardTwentyFivePercentIntent Quarter impulse
+EnginesForwardTwentyFivePercentIntent One quarter impulse
+EnginesForwardTwentyFivePercentIntent Thrusters twenty five percent
+EnginesForwardTwentyFivePercentIntent Twenty five percent
+
+EnginesForwardTwentyPercentIntent Main drives twenty percent
+EnginesForwardTwentyPercentIntent Engines twenty percent
+EnginesForwardTwentyPercentIntent Thrusters twenty percent
+EnginesForwardTwentyPercentIntent Twenty percent
+
+NextFireGroupIntent Next fire group
+NextFireGroupIntent Next weapons group
+NextFireGroupIntent Next weapons
+
+NextHostileIntent Next hostile
+NextHostileIntent Select next hostile
+
+NextSystemIntent Next system in route
+NextSystemIntent Next destination in route
+NextSystemIntent Lock next target destination
+NextSystemIntent Lock on to our next destination
+
+NextShipIntent Next target
+NextShipIntent Next ship
+NextShipIntent Cycle next
+NextShipIntent Cycle next target
+NextShipIntent Cycle next ship
+
+PrevoiusFireGroupIntent Previous fire group
+PrevoiusFireGroupIntent Last fire group
+PrevoiusFireGroupIntent Previous weapons
+PrevoiusFireGroupIntent Last weapons
+
+PreviousHostileIntent Previous hostile
+PreviousHostileIntent Last hostile
+PreviousHostileIntent Select last hostile
+PreviousHostileIntent Select previous hostile
+
+PreviousShipIntent Previous target
+PreviousShipIntent Last target
+PreviousShipIntent Cycle previous
+PreviousShipIntent Cycle previous target
+PreviousShipIntent Cycle previous ship
+
+DockingRequestIntent Request docking
+DockingRequestIntent Request docking permission
+DockingRequestIntent Request landing permission
+DockingRequestIntent Request a landing pad
+DockingRequestIntent Request a landing bay
+DockingRequestIntent Request a docking pad
+DockingRequestIntent Request a docking bay
+DockingRequestIntent Ask for a landing bay
+DockingRequestIntent Ask for a landing bay please
+DockingRequestIntent Ask for a docking bay
+DockingRequestIntent Ask for a docking bay please
+DockingRequestIntent Ask for a landing pad
+DockingRequestIntent Ask for a landing pad please
+DockingRequestIntent Look for a landing pad
+DockingRequestIntent Look for a landing pad please
+DockingRequestIntent Look for a docking pad
+DockingRequestIntent Look for a docking pad please
+DockingRequestIntent Search for a landing pad
+DockingRequestIntent Search for a landing pad please
+DockingRequestIntent Search for a docking pad
+DockingRequestIntent Search for a docking pad please
+DockingRequestIntent Find a landing pad
+DockingRequestIntent Find a landing pad please
+DockingRequestIntent Find a docking pad
+DockingRequestIntent Find a docking pad please
+DockingRequestIntent Search for a landing bay
+DockingRequestIntent Search for a docking bay
+DockingRequestIntent Find me a landing bay
+DockingRequestIntent Find me a docking bay
+DockingRequestIntent Find me a landing pad
+DockingRequestIntent Find me a docking pad
+
+DiognosticsIntent Reset all systems
+DiognosticsIntent Run diagnostics
+DiognosticsIntent Check all systems
+DiognosticsIntent All systems check
+DiognosticsIntent Full diagnostic scan
+DiognosticsIntent Initiate diagnostic scan
+DiognosticsIntent Prepare all on board systems
+DiognosticsIntent Reset Panels
+DiognosticsIntent System checks
+DiognosticsIntent Check systems
+DiognosticsIntent System scan
+DiognosticsIntent Check onboard flight systems
+DiognosticsIntent Software debugging
+DiognosticsIntent Run software debugging
+
+CenterHeadsetIntent Reset rift
+CenterHeadsetIntent Reset oculus
+CenterHeadsetIntent Center rift
+CenterHeadsetIntent Center oculus
+CenterHeadsetIntent Reset rift orientation
+CenterHeadsetIntent Reset oculus orientation
+CenterHeadsetIntent Reset orientation
+CenterHeadsetIntent Reset rift
+CenterHeadsetIntent Reset oculus
+CenterHeadsetIntent Center vive
+CenterHeadsetIntent Center HTC vive
+CenterHeadsetIntent Reset HTC vive orientation
+CenterHeadsetIntent Reset vive orientation
+
+RetractHardpointsIntent Retract hardpoints
+RetractHardpointsIntent Disengage hardpoints
+RetractHardpointsIntent Retract weapons
+RetractHardpointsIntent Disengage weapons
+RetractHardpointsIntent Retract armaments
+
+RetractLandingGearIntent Retract landing gear
+RetractLandingGearIntent Raise landing gear
+RetractLandingGearIntent Retract docking modules
+RetractLandingGearIntent Raise docking modules
+RetractLandingGearIntent Landing gear up
+RetractLandingGearIntent Docking gear up
+RetractLandingGearIntent Docking modules up
+
+RetractCargoScoopIntent Retract scoop
+RetractCargoScoopIntent Retract cargo scoop
+RetractCargoScoopIntent Scoop up
+RetractCargoScoopIntent Cargo scoop up
+
+EnginesBackwardFiftyPercentIntent Reverse fifty percent
+EnginesBackwardFiftyPercentIntent Reverse thrusters fifty percent
+EnginesBackwardFiftyPercentIntent Reverse halfway
+EnginesBackwardFiftyPercentIntent Half reverse
+
+EnginesBackwardSeventyFivePercentIntent Reverse seventy five percent
+EnginesBackwardSeventyFivePercentIntent Reverse thrusters seventy five percent
+EnginesBackwardSeventyFivePercentIntent Reverse three quarters
+EnginesBackwardSeventyFivePercentIntent Three quarter reverse
+
+EnginesBackwardOneHundredPercentIntent Reverse thrusters one hundred percent
+EnginesBackwardOneHundredPercentIntent Reverse all thrusters
+EnginesBackwardOneHundredPercentIntent Full reverse
+EnginesBackwardOneHundredPercentIntent Maximum reverse
+
+EnginesBackwardTwentyFivePercentIntent Reverse twenty five percent
+EnginesBackwardTwentyFivePercentIntent Reverse thrusters twenty five percent
+EnginesBackwardTwentyFivePercentIntent Reverse thrusters one quarter
+EnginesBackwardTwentyFivePercentIntent Reverse thrusters
+EnginesBackwardTwentyFivePercentIntent One quarter reverse
+EnginesBackwardTwentyFivePercentIntent Slow reverse
+EnginesBackwardTwentyFivePercentIntent Backward thrusters
+
+SRVRecoveryIntent Recover SRV
+SRVRecoveryIntent Recover the SRV
+SRVRecoveryIntent Bring me aboard
+SRVRecoveryIntent Open the pod bay doors
+SRVRecoveryIntent Open the pod bay doors please
+SRVRecoveryIntent Park the buggy
+
+StopEnginesIntent Engines full stop
+StopEnginesIntent Full stop
+StopEnginesIntent Cut all engines
+StopEnginesIntent Engines off
+
+SystemInformationIntent get system information for {system}
+SystemInformationIntent what do you have on {system}
+SystemInformationIntent what do you have on {system} system
+SystemInformationIntent what information do you have on {system}
+SystemInformationIntent what information do you have on {system} system

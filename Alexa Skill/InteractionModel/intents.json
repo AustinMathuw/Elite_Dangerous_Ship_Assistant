@@ -1,0 +1,216 @@
+{ 
+   "intents": [ 
+     	{
+			"intent": "UnrecognizedIntent"
+		},
+		{
+			"intent": "WhereAmIIntent"
+		},
+     	{
+			"intent": "GetRecentMessageIntent"
+		},
+		{
+			"intent": "RankIntent",
+			"slots": [
+				{
+					"name": "rank",
+					"type": "LIST_OF_RANKS"
+				}
+			]
+		},
+		{
+			"intent": "SystemInformationIntent",
+			"slots": [
+				{
+					"name": "system",
+					"type": "LIST_OF_SYSTEMS"
+				}
+			]
+		},
+		{
+			"intent": "BoostIntent"
+		},
+		{
+			"intent": "YouThereIntent"
+		},
+		{
+			"intent": "BalencePowerIntent"
+		},
+		{
+			"intent": "CancelDockingIntent"
+		},
+		{
+			"intent": "DeployChaffIntent"
+		},
+		{
+			"intent": "DeployHardpointsIntent"
+		},
+		{
+			"intent": "DeployLandingGearIntent"
+		},
+		{
+			"intent": "DeployCargoScoopIntent"
+		},
+		{
+			"intent": "DeploySRVIntent"
+		},
+		{
+			"intent": "ExitFrameShiftDrive"
+		},
+		{
+			"intent": "ExitCruiseIntent"
+		},
+		{
+			"intent": "PowerToEnginesIntent"
+		},
+		{
+			"intent": "PowertoSystemsIntent"
+		},
+		{
+			"intent": "PowerToWeaponsIntent"
+		},
+		{
+			"intent": "EmergencyStopIntent"
+		},
+		{
+			"intent": "EngageFrameShiftDrive"
+		},
+		{
+			"intent": "EngageCruiseIntent"
+		},
+		{
+			"intent": "FlightAssistOffIntent"
+		},
+		{
+			"intent": "FlightAssistOnIntent"
+		},
+		{
+			"intent": "ScreenshotIntent"
+		},
+		{
+			"intent": "TargetEnemyIntent"
+		},
+		{
+			"intent": "LaunchIntent"
+		},
+		{
+			"intent": "LightsOffIntent"
+		},
+		{
+			"intent": "LightsOnIntent"
+		},
+		{
+			"intent": "EnginesForwardEightyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardFiftyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardFortyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardNintyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardOneHundredPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardSeventyFivePercentIntent"
+		},
+		{
+			"intent": "EnginesForwardSeventyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardSixtyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardTenPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardThirtyPercentIntent"
+		},
+		{
+			"intent": "EnginesForwardTwentyFivePercentIntent"
+		},
+		{
+			"intent": "EnginesForwardTwentyPercentIntent"
+		},
+		{
+			"intent": "NextFireGroupIntent"
+		},
+		{
+			"intent": "NextHostileIntent"
+		},
+		{
+			"intent": "NextSystemIntent"
+		},
+		{
+			"intent": "NextShipIntent"
+		},
+		{
+			"intent": "PrevoiusFireGroupIntent"
+		},
+		{
+			"intent": "PreviousHostileIntent"
+		},
+		{
+			"intent": "PreviousShipIntent"
+		},
+		{
+			"intent": "DockingRequestIntent"
+		},
+		{
+			"intent": "DiognosticsIntent"
+		},
+		{
+			"intent": "CenterHeadsetIntent"
+		},
+		{
+			"intent": "RetractHardpointsIntent"
+		},
+		{
+			"intent": "RetractLandingGearIntent"
+		},
+		{
+			"intent": "RetractCargoScoopIntent"
+		},
+		{
+			"intent": "EnginesBackwardFiftyPercentIntent"
+		},
+		{
+			"intent": "EnginesBackwardSeventyFivePercentIntent"
+		},
+		{
+			"intent": "EnginesBackwardOneHundredPercentIntent"
+		},
+		{
+			"intent": "EnginesBackwardTwentyFivePercentIntent"
+		},
+		{
+			"intent": "SRVRecoveryIntent"
+		},
+		{
+			"intent": "StopEnginesIntent"
+		},
+		{
+			"intent": "ThatsAllIntent"
+		},
+		{
+			"intent": "ThankYouIntent"
+		},
+		{
+			"intent": "GetSessionIDIntent"
+		},
+		{
+			"intent": "AMAZON.HelpIntent"
+		}, 
+		{ 
+			"intent": "AMAZON.StopIntent" 
+		}, 
+		{ 
+			"intent": "AMAZON.CancelIntent" 
+		} 
+	] 
+ } 
+
+

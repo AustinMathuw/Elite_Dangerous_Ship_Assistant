@@ -1,0 +1,6 @@
+combat
+trade
+explore
+empire
+federation
+cqc
