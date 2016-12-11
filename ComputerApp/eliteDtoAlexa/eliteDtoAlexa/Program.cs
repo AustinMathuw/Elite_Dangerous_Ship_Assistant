@@ -11,6 +11,11 @@ using System.Web.Script.Serialization;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Text;
+using WindowsInput;
+using System.Windows.Input;
+using InputManager;
 
 public class Program
 {
@@ -28,6 +33,9 @@ public class Program
         public PVPKill PVPKill  = new PVPKill();
         public DatalinkScan DataLinkScan  = new DatalinkScan();
         public RecieveText RecieveText = new RecieveText();
+        public LandingGear LandingGear = new LandingGear();
+        public Chaff Chaff = new Chaff();
+        public Scoop Scoop = new Scoop();
     }
 
     public class shipCommands
@@ -143,11 +151,36 @@ public class Program
             From = fromWho;
         }
     }
+    public class LandingGear
+    {
+        public string gearUp { get; set; }
+        public void gear(string gearState)
+        {
+            gearUp = gearState;
+        }
+    }
+    public class Chaff
+    {
+        public string chaffUp { get; set; }
+        public void chaff(string chaffState)
+        {
+            chaffUp = chaffState;
+        }
+    }
+    public class Scoop
+    {
+        public string scoopUp { get; set; }
+        public void scoop(string scoopState)
+        {
+            scoopUp = scoopState;
+        }
+    }
 
     private static AddedContentReader _continuousFileReaderShip = null;
     private static AddedContentReader _continuousFileReaderCommands = null;
 
     public string channelShipCommands;
+    
 
     public static void Main()
     {
@@ -174,8 +207,11 @@ public class Program
         shipInfoMaster.PVPKill.pvpkill("");
         shipInfoMaster.DataLinkScan.datalinkscan("");
         shipInfoMaster.RecieveText.recievetext("", "");
+        shipInfoMaster.LandingGear.gear("");
+        shipInfoMaster.Chaff.chaff("");
+        shipInfoMaster.Scoop.scoop("");
 
-        
+
         string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
         if (Environment.OSVersion.Version.Major >= 6)
         {
@@ -189,6 +225,8 @@ public class Program
         {
             Directory.CreateDirectory(pathDoc);
         }
+
+        File.WriteAllText(pathDoc + "\\commandsTo.json", "");
 
         // This will exit automatically if main window closes 
         // due to thread being in the background
@@ -265,13 +303,8 @@ public class Program
             string newLines = _continuousFileReaderCommands.GetAddedLine();
             if (newLines != null && newLines.Length > 0)
             {
-                //Process p = Process.GetProcessesByName("notepad").FirstOrDefault();
-                //if (p != null)
-                //{
-                //    IntPtr h = p.MainWindowHandle;
-                //    SetForegroundWindow(h);
-                //    //SendKeys.SendWait("k");
-                //}
+                
+                
 
                 string path = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)).FullName;
                 if (Environment.OSVersion.Version.Major >= 6)
@@ -313,327 +346,384 @@ public class Program
                             {
                                 if (shipCommandsMaster.command == "boost")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("boost");
                                     Console.ResetColor();
+                                    Task.Run(() => boost());
                                 }
                                 else if (shipCommandsMaster.command == "balencePower")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("balencePower");
                                     Console.ResetColor();
+                                    Task.Run(() => cancelDocking());
+
                                 }
                                 else if (shipCommandsMaster.command == "cancelDocking")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("cancelDocking");
                                     Console.ResetColor();
-                                }
-                                else if (shipCommandsMaster.command == "cargoScan")
-                                {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
-                                    Console.WriteLine("cargoScan");
-                                    Console.ResetColor();
+                                    Task.Run(() => cancelDocking());
+
                                 }
                                 else if (shipCommandsMaster.command == "deployChaff")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("deployChaff");
                                     Console.ResetColor();
+                                    Task.Run(() => deployChaff());
                                 }
                                 else if (shipCommandsMaster.command == "deployHardpoints")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("deployHardpoints");
                                     Console.ResetColor();
+                                    Task.Run(() => deployHardpoints());
                                 }
                                 else if (shipCommandsMaster.command == "deployLandingGear")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("deployLandingGear");
                                     Console.ResetColor();
+                                    Task.Run(() => deployLandingGear());
                                 }
                                 else if (shipCommandsMaster.command == "deployCargoScoop")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("deployCargoScoop");
                                     Console.ResetColor();
+                                    Task.Run(() => deployCargoScoop());
                                 }
                                 else if (shipCommandsMaster.command == "deploySRV")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("deploySRV");
                                     Console.ResetColor();
+                                    Task.Run(() => deploySRV());
                                 }
                                 else if (shipCommandsMaster.command == "exitFramshift")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("exitFramshift");
                                     Console.ResetColor();
+                                    Task.Run(() => exitFramshift());
                                 }
                                 else if (shipCommandsMaster.command == "exitCruise")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("exitCruise");
                                     Console.ResetColor();
+                                    Task.Run(() => exitCruise());
                                 }
                                 else if (shipCommandsMaster.command == "powerToEngines")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("powerToEngines");
                                     Console.ResetColor();
+                                    Task.Run(() => powerToEngines());
                                 }
                                 else if (shipCommandsMaster.command == "powerToSystems")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("powerToSystems");
                                     Console.ResetColor();
+                                    Task.Run(() => powerToSystems());
                                 }
                                 else if (shipCommandsMaster.command == "powerToWeapons")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("powerToWeapons");
                                     Console.ResetColor();
+                                    Task.Run(() => powerToWeapons());
                                 }
                                 else if (shipCommandsMaster.command == "emergencyStop")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("emergencyStop");
                                     Console.ResetColor();
+                                    Task.Run(() => emergencyStop());
                                 }
                                 else if (shipCommandsMaster.command == "engageFrameshift")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("engageFrameshift");
                                     Console.ResetColor();
+                                    Task.Run(() => engageFrameshift());
                                 }
                                 else if (shipCommandsMaster.command == "engageCruise")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("engageCruise");
                                     Console.ResetColor();
+                                    Task.Run(() => engageCruise());
                                 }
                                 else if (shipCommandsMaster.command == "fightAssistOff")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("fightAssistOff");
                                     Console.ResetColor();
+                                    Task.Run(() => fightAssistOff());
                                 }
                                 else if (shipCommandsMaster.command == "fightAssistOn")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("fightAssistOn");
                                     Console.ResetColor();
+                                    Task.Run(() => fightAssistOn());
                                 }
                                 else if (shipCommandsMaster.command == "targetEnemy")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("targetEnemy");
                                     Console.ResetColor();
+                                    Task.Run(() => targetEnemy());
                                 }
                                 else if (shipCommandsMaster.command == "screenshot")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("screenshot");
                                     Console.ResetColor();
+                                    Task.Run(() => screenshot());
                                 }
                                 else if (shipCommandsMaster.command == "launch")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("launch");
                                     Console.ResetColor();
+                                    Task.Run(() => launch());
                                 }
                                 else if (shipCommandsMaster.command == "lightsOff")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("lightsOff");
                                     Console.ResetColor();
+                                    Task.Run(() => lightsOff());
                                 }
                                 else if (shipCommandsMaster.command == "lightsOn")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("lightsOn");
                                     Console.ResetColor();
+                                    Task.Run(() => lightsOn());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward100")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward100");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward100());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward90")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward90");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward90());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward80")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward80");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward80());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward75")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward75");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward75());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward70")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward70");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward70());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward60")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward60");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward60());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward50")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward50");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward50());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward40")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward40");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward40());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward30")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward30");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward30());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward25")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward25");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward25());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward20")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward20");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward20());
                                 }
                                 else if (shipCommandsMaster.command == "enginesForward10")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesForward10");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesForward10());
                                 }
                                 else if (shipCommandsMaster.command == "nextFireGroup")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("nextFireGroup");
                                     Console.ResetColor();
+                                    Task.Run(() => nextFireGroup());
                                 }
                                 else if (shipCommandsMaster.command == "nextFireGroup")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("nextFireGroup");
                                     Console.ResetColor();
+                                    Task.Run(() => nextFireGroup());
+                                }
+                                else if (shipCommandsMaster.command == "nextHostile")
+                                {
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                                    Console.WriteLine("nextHostile");
+                                    Console.ResetColor();
+                                    Task.Run(() => nextHostile());
                                 }
                                 else if (shipCommandsMaster.command == "nextSystem")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("nextSystem");
                                     Console.ResetColor();
+                                    Task.Run(() => nextSystem());
                                 }
                                 else if (shipCommandsMaster.command == "nextShip")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("nextShip");
                                     Console.ResetColor();
+                                    Task.Run(() => nextShip());
                                 }
                                 else if (shipCommandsMaster.command == "prevFireGroup")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("prevFireGroup");
                                     Console.ResetColor();
+                                    Task.Run(() => prevFireGroup());
                                 }
                                 else if (shipCommandsMaster.command == "prevHostile")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("prevHostile");
                                     Console.ResetColor();
+                                    Task.Run(() => prevHostile());
                                 }
                                 else if (shipCommandsMaster.command == "prevShip")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("prevShip");
                                     Console.ResetColor();
+                                    Task.Run(() => prevShip());
                                 }
                                 else if (shipCommandsMaster.command == "requestDocking")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("requestDocking");
                                     Console.ResetColor();
+                                    Task.Run(() => requestDocking());
                                 }
                                 else if (shipCommandsMaster.command == "centerHeadset")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("centerHeadset");
                                     Console.ResetColor();
+                                    Task.Run(() => centerHeadset());
                                 }
                                 else if (shipCommandsMaster.command == "retractHardpoints")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("retractHardpoints");
                                     Console.ResetColor();
+                                    Task.Run(() => retractHardpoints());
                                 }
                                 else if (shipCommandsMaster.command == "retractLandingGear")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("retractLandingGear");
                                     Console.ResetColor();
+                                    Task.Run(() => retractLandingGear());
                                 }
                                 else if (shipCommandsMaster.command == "retractCargoScoop")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("retractCargoScoop");
                                     Console.ResetColor();
+                                    Task.Run(() => retractCargoScoop());
                                 }
                                 else if (shipCommandsMaster.command == "enginesBack100")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesBack100");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesBack100());
                                 }
                                 else if (shipCommandsMaster.command == "enginesBack75")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesBack75");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesBack75());
                                 }
                                 else if (shipCommandsMaster.command == "enginesBack50")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesBack50");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesBack50());
                                 }
                                 else if (shipCommandsMaster.command == "enginesBack25")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("enginesBack25");
                                     Console.ResetColor();
+                                    Task.Run(() => enginesBack25());
                                 }
                                 else if (shipCommandsMaster.command == "SRVRecovery")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("SRVRecovery");
                                     Console.ResetColor();
+                                    Task.Run(() => SRVRecovery());
                                 }
                                 else if (shipCommandsMaster.command == "cutEngines")
                                 {
-                                    Console.BackgroundColor = ConsoleColor.Cyan;
+                                    Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("cutEngines");
                                     Console.ResetColor();
+                                    Task.Run(() => cutEngines());
                                 }
                             }
                             test = 0;
@@ -663,6 +753,864 @@ public class Program
                     }
                 }
             }
+        }
+    }
+    public static void boost()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Tab);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Tab);
+        }
+        return;
+    }
+
+    public static void balencePower()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Down);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Down);
+        }
+    }
+
+    public static void cancelDocking()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.D1);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D1);
+            Thread.Sleep(500);
+            Keyboard.KeyDown(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.D1);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D1);
+        }
+    }
+
+    public static void deployChaff()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.C);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.C);
+        }
+    }
+
+    public static void deployHardpoints()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.U);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.U);
+        }
+    }
+
+    public static void deployLandingGear()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            InputSimulator test = new InputSimulator();
+            Keyboard.KeyDown(Keys.L);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.L);
+        }
+    }
+
+    public static void deployCargoScoop()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Home);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Home);
+        }
+    }
+
+    public static void deploySRV()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.D3);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D3);
+            Thread.Sleep(500);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.D3);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D3);
+        }
+    }
+
+    public static void exitFramshift()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.J);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.J);
+        }
+    }
+
+    public static void exitCruise()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Divide);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Divide);
+        }
+    }
+
+    public static void powerToEngines()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Up);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Up);
+        }
+    }
+
+    public static void powerToSystems()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Left);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Left);
+        }
+    }
+
+    public static void powerToWeapons()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Right);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Right);
+        }
+    }
+
+    public static void emergencyStop()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.J);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.J);
+        }
+    }
+
+    public static void engageFrameshift()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.J);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.J);
+        }
+    }
+
+    public static void engageCruise()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Divide);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Divide);
+        }
+    }
+
+    public static void fightAssistOff()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Z);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Z);
+        }
+    }
+
+    public static void fightAssistOn()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Z);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Z);
+        }
+    }
+    
+    public static void targetEnemy()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Y);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Y);
+        }
+    }
+    
+    public static void screenshot()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.F10);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.F10);
+        }
+    }
+    
+    public static void launch()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Back);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Back);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Back);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Back);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Back);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Back);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+        }
+    }
+    
+    public static void lightsOff()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Insert);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Insert);
+        }
+    }
+    
+    public static void lightsOn()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Insert);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Insert);
+        }
+    }
+    
+    public static void enginesForward100()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Add);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Add);
+        }
+    }
+    
+    public static void enginesForward90()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Add);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Add);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+        }
+    }
+    
+    public static void enginesForward80()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Add);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Add);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+        }
+    }
+    
+    public static void enginesForward75()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad3);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad3);
+        }
+    }
+    
+    public static void enginesForward70()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+        }
+    }
+    
+    public static void enginesForward60()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+        }
+    }
+    
+    public static void enginesForward50()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad2);
+        }
+    }
+    
+    public static void enginesForward40()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+        }
+    }
+    
+    public static void enginesForward30()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad2);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+        }
+    }
+    
+    public static void enginesForward25()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad1);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad1);
+        }
+    }
+    
+    public static void enginesForward20()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.X);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.X);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+        }
+    }
+    
+    public static void enginesForward10()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.X);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.X);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.W);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.W);
+        }
+    }
+    
+    public static void nextFireGroup()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.RShiftKey);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.OemPeriod);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.OemPeriod);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.RShiftKey);
+        }
+    }
+
+    public static void nextHostile()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.H);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.H);
+        }
+    }
+
+    public static void nextSystem()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.M);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.M);
+        }
+    }
+    
+    public static void nextShip()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.G);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.G);
+        }
+    }
+    
+    public static void prevFireGroup()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.RShiftKey);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Oemcomma);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Oemcomma);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.RShiftKey);
+        }
+    }
+    
+    public static void prevHostile()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.N);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.N);
+        }
+    }
+    
+    public static void prevShip()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.B);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.B);
+        }
+    }
+    
+    public static void requestDocking()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.D1);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D1);
+            Thread.Sleep(500);
+            Keyboard.KeyDown(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.E);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Q);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.D1);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D1);
+        }
+    }
+    
+    public static void centerHeadset()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.F12);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.F12);
+        }
+    }
+    
+    public static void retractHardpoints()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.U);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.U);
+        }
+    }
+    
+    public static void retractLandingGear()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.L);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.L);
+        }
+    }
+    
+    public static void retractCargoScoop()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Home);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Home);
+        }
+    }
+    
+    public static void enginesBack100()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.Subtract);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Subtract);
+        }
+    }
+    
+    public static void enginesBack75()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad9);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad9);
+        }
+    }
+    
+    public static void enginesBack50()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad8);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad8);
+        }
+    }
+    
+    public static void enginesBack25()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.NumPad7);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.NumPad7);
+        }
+    }
+    
+    public static void SRVRecovery()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.D3);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D3);
+            Thread.Sleep(500);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.S);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.Space);
+            Thread.Sleep(30);
+            Keyboard.KeyDown(Keys.D3);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.D3);
+        }
+    }
+
+    public static void cutEngines()
+    {
+        Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
+        if (p != null)
+        {
+            IntPtr h = p.MainWindowHandle;
+            SetForegroundWindow(h);
+            Keyboard.KeyDown(Keys.X);
+            Thread.Sleep(30);
+            Keyboard.KeyUp(Keys.X);
         }
     }
 
@@ -842,7 +1790,7 @@ public class Program
                             Array.Resize(ref universalContent, i + 1);
                             universalContent[i] = eventContent[i];
                             Console.WriteLine("{0}: {1}", eventContentAttributes[i], universalContent[i]);
-                            if(eventContentAttributes[i] == "Docked" && universalContent[i] == "true")
+                            if(eventContentAttributes[i] == "Docked" && universalContent[i] == "True")
                             {
                                 dockTrue = true;
                             }
@@ -1086,4 +2034,5 @@ public class Program
             return _reader.ReadLine();
         }
     }
+
 }

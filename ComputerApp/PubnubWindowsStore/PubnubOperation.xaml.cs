@@ -250,6 +250,15 @@ namespace PubnubWindowsStore
 
         private async void mainLoop()
         {
+            try
+            {
+                await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\commands.json");
+            }
+            catch
+            {
+                await KnownFolders.DocumentsLibrary.CreateFileAsync("Elite Dangerous Ship Assistant\\commands.json");
+                
+            }
             var shipCommand = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\commands.json");
             await FileIO.WriteTextAsync(shipCommand,"");
             long lastUpdate = 0;

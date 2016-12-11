@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WinInput</name>
+    </assembly>
+    <members>
+        <member name="T:System.Windows.Input.HookInput">
+            <summary>
+            Wrapper class for the Low-level Windows API system-wide input event hooks
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.HookInput.Finalize">
+            <summary>
+            Removes all hooks
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.HookInput.Hook">
+            <summary>
+            Sets mouse and keyboard hooks
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.HookInput.Unhook">
+            <summary>
+            Removes mouse and keyboard hooks
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.HookInput.RunMessageLoop">
+            <summary>
+            Runs a windows message loop, required by console applications to get the hooks working 
+            </summary>
+            <returns>return value of the last windows message, a negative value indicates an error</returns>
+        </member>
+        <member name="P:System.Windows.Input.HookInput.Hooked">
+            <summary>
+            Flag indicating wether the mouse and keyboard hooks are set or not
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.KeyDown">
+            <summary>
+            Occurs when a key is pressed
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.KeyUp">
+            <summary>
+            Occurs when a key is release
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.MouseMove">
+            <summary>
+            Occurs when the cursor is moved
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.MouseDown">
+            <summary>
+            Occurs when a mouse button is pressed
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.MouseUp">
+            <summary>
+            Occurs when a mouse button is released
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.ScrollVertical">
+            <summary>
+             Occurs when the mouse wheel is turned
+            </summary>
+        </member>
+        <member name="E:System.Windows.Input.HookInput.ScrollHorizontal">
+            <summary>
+             Occurs when the mouse wheel is tilted
+            </summary>
+        </member>
+        <member name="T:System.Windows.Input.SendInput">
+            <summary>
+            Wrapper class for the WinAPI function SendInput, which synthesizes keystrokes, mouse motions, and button clicks.
+            </summary>
+        </member>
+        <member name="F:System.Windows.Input.SendInput.Instance">
+            <summary>
+            The input queue
+            </summary>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.KeyDown(System.Windows.Forms.Keys)">
+            <summary>
+            Queues a KeyDown event
+            </summary>
+            <param name="key">The key to press</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.KeyUp(System.Windows.Forms.Keys)">
+            <summary>
+            Queues a KeyUp event
+            </summary>
+            <param name="key">The key to release</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.MouseDown(System.Windows.Forms.MouseButtons)">
+            <summary>
+            Queues a MouseDown event
+            </summary>
+            <param name="button">The button to press</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.MouseUp(System.Windows.Forms.MouseButtons)">
+            <summary>
+            Queues a MouseUp event
+            </summary>
+            <param name="button">The button to release</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.MouseMove(System.Int32,System.Int32)">
+            <summary>
+            Queues a relative MouseMove event
+            </summary>
+            <param name="dx">The ammount of pixels to move the cursor in horizontal direction</param>
+            <param name="dy">The ammount of pixels to move the cursor in vertical direction</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.MouseMoveTo(System.Int32,System.Int32)">
+            <summary>
+            Queues an absolute MouseMove event
+            </summary>
+            <param name="x">The x position on the virtual desktop</param>
+            <param name="y">The y position on the virtual desktop</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.ScrollVertical(System.Int32)">
+            <summary>
+            Queues vertical Scroll event
+            </summary>
+            <param name="delta">The distance the wheel is to be rotated, expressed in multiples or divisions of WHEEL_DELTA, which is 120A positive value indicates that the wheel was rotated forward, away from the user; a negative value indicates that the wheel was rotated backward, toward the user.</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.ScrollHorizontal(System.Int32)">
+            <summary>
+            Queues horizontal Scroll event
+            </summary>
+            <param name="delta">The distance the wheel is to be rotated, expressed in multiples or divisions of WHEEL_DELTA, which is 120. A positive value indicates that the wheel was rotated to the right; a negative value indicates that the wheel was rotated to the left.</param>
+            <returns>The input queue</returns>
+        </member>
+        <member name="M:System.Windows.Input.SendInput.Flush">
+            <summary>
+            Flushes the input queue and performs a call to SendInput
+            </summary>
+        </member>
+    </members>
+</doc>

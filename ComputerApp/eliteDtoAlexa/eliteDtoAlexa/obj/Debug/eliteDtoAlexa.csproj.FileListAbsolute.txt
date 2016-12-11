@@ -13,3 +13,12 @@ C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoA
 C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.application
 C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.exe
 C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\obj\Debug\eliteDtoAlexa.pdb
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\WindowsInput.dll
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\WinInput.dll
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\WindowsInput.xml
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\WinInput.xml
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\InputManager.dll
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\SharpDX.DirectInput.dll
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\SharpDX.dll
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\SharpDX.xml
+C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\eliteDtoAlexa\eliteDtoAlexa\bin\Debug\SharpDX.DirectInput.xml
