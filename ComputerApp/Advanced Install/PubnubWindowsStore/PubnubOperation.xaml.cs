@@ -66,18 +66,8 @@ namespace PubnubWindowsStore
 
             if (data != null)
             {
-                pubnub = new Pubnub(data.publishKey, data.subscribeKey, data.secretKey, data.cipherKey, data.ssl);
-                /*pubnub.Origin = data.origin;
-                pubnub.SessionUUID = data.sessionUUID;
-                pubnub.SubscribeTimeout = data.subscribeTimeout;
-                pubnub.NonSubscribeTimeout = data.nonSubscribeTimeout;
-                pubnub.NetworkCheckMaxRetries = data.maxRetries;
-                pubnub.NetworkCheckRetryInterval = data.retryInterval;
-                pubnub.LocalClientHeartbeatInterval = data.localClientHeartbeatInterval;*/
-                pubnub.EnableResumeOnReconnect = data.resumeOnReconnect;
-                /*pubnub.AuthenticationKey = data.authKey;
-                pubnub.PresenceHeartbeat = data.presenceHeartbeat;
-                pubnub.PresenceHeartbeatInterval = data.presenceHeartbeatInterval;*/
+                pubnub = new Pubnub(data.publishKey, data.subscribeKey, data.secretKey, data.cipherKey, data.ssl); //Initialize PubNub
+                pubnub.EnableResumeOnReconnect = data.resumeOnReconnect; 
 
                 
 
@@ -97,7 +87,7 @@ namespace PubnubWindowsStore
         /// Callback method for error messages
         /// </summary>
         /// <param name="result"></param>
-        void PubnubDisplayErrorMessage(PubnubClientError result)
+        void PubnubDisplayErrorMessage(PubnubClientError result) //Error Callback
         {
             //DisplayHistoryMessageInTextBox(result.Description);
 
@@ -227,8 +217,8 @@ namespace PubnubWindowsStore
         {
 
             updateHistoryResult(result);
-        }
-        
+        } //Handels Command history
+
         public void updateHistoryResult(string result)
         {
             if(historyResult != result)
@@ -236,11 +226,11 @@ namespace PubnubWindowsStore
                 historyResult = result;
                 DisplayHistoryMessageInTextBox(result);
             }
-        }
+        } //Handels Command history
 
         void PubnubPublishCallbackResult(string result)
         {
-            
+
         }
 
         private void PubnubDisconnectCallbackResult(string result)
@@ -271,7 +261,7 @@ namespace PubnubWindowsStore
                 {
                     lastUpdate = milliseconds;
 
-                    //History Info
+                    //History Commands
                     try
                     {
                         history(historyChannel);
@@ -319,12 +309,12 @@ namespace PubnubWindowsStore
                     }
                 }
             };
-        }
+        } //Main function loop
 
         private void history(string historyChannel)
         {
             pubnub.DetailedHistory<string>(historyChannel, 1, true, PubnubHistoryCallbackResult, PubnubDisplayErrorMessage);
-        }
+        } //Gets commands
 
         private async void DisplayHistoryMessageInTextBox(string msg)
         {
@@ -377,8 +367,8 @@ namespace PubnubWindowsStore
                     subscribeResult.Text += msg + "\n";
                     subscribeResult.Select(subscribeResult.Text.Length - 1, 1);
                 });
-            
-        }
+
+        } //Gets commands
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
@@ -431,6 +421,6 @@ namespace PubnubWindowsStore
             var frame = new Frame();
             frame.Navigate(typeof(PubnubDemoStart), data);
             Window.Current.Content = frame;
-        }
+        } //Handels back button
     }
 }

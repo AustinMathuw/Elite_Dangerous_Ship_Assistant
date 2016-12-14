@@ -36,12 +36,12 @@ public class Program
         public LandingGear LandingGear = new LandingGear();
         public Chaff Chaff = new Chaff();
         public Scoop Scoop = new Scoop();
-    }
+    } //Difines the ship info
 
     public class shipCommands
     {
         public string command { get; set; }
-    }
+    } //Difines the commands
 
     public class Rank
     {
@@ -189,7 +189,7 @@ public class Program
         
         Run(shipInfoMaster, shipCommandsMaster);
 
-    }
+    } //Main loop
 
     
 
@@ -754,7 +754,7 @@ public class Program
                 }
             }
         }
-    }
+    } // When new command is found, assosiate it to a function
     public static void boost()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -767,7 +767,7 @@ public class Program
             Keyboard.KeyUp(Keys.Tab);
         }
         return;
-    }
+    } //Handels key presses for boost function
 
     public static void balencePower()
     {
@@ -780,7 +780,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Down);
         }
-    }
+    } //Handels key presses for balance power function
 
     public static void cancelDocking()
     {
@@ -825,7 +825,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D1);
         }
-    }
+    } //Handels key presses for cancel docking function
 
     public static void deployChaff()
     {
@@ -838,7 +838,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.C);
         }
-    }
+    } //Handels key presses for deploy chaff function
 
     public static void deployHardpoints()
     {
@@ -851,7 +851,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.U);
         }
-    }
+    } //Handels key presses for deploy hardpoints function
 
     public static void deployLandingGear()
     {
@@ -865,7 +865,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.L);
         }
-    }
+    } //Handels key presses for deploy landing gear function
 
     public static void deployCargoScoop()
     {
@@ -878,7 +878,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Home);
         }
-    }
+    } //Handels key presses for deploy cargo scoop function
 
     public static void deploySRV()
     {
@@ -907,7 +907,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D3);
         }
-    }
+    } //Handels key presses for deploy SRV function
 
     public static void exitFramshift()
     {
@@ -920,7 +920,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.J);
         }
-    }
+    } //Handels key presses for exit frameshift function
 
     public static void exitCruise()
     {
@@ -933,7 +933,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Divide);
         }
-    }
+    } //Handels key presses for exit cruise function
 
     public static void powerToEngines()
     {
@@ -946,7 +946,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Up);
         }
-    }
+    } //Handels key presses for power to engines function
 
     public static void powerToSystems()
     {
@@ -959,7 +959,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Left);
         }
-    }
+    } //Handels key presses for power to systems function
 
     public static void powerToWeapons()
     {
@@ -972,7 +972,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Right);
         }
-    }
+    } //Handels key presses for power to weapons function
 
     public static void emergencyStop()
     {
@@ -985,7 +985,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.J);
         }
-    }
+    } //Handels key presses for emegency stop function
 
     public static void engageFrameshift()
     {
@@ -998,7 +998,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.J);
         }
-    }
+    } //Handels key presses for engage frameshift function
 
     public static void engageCruise()
     {
@@ -1011,7 +1011,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Divide);
         }
-    }
+    } //Handels key presses for engage crusie function
 
     public static void fightAssistOff()
     {
@@ -1024,7 +1024,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Z);
         }
-    }
+    } //Handels key presses for fight assist off function
 
     public static void fightAssistOn()
     {
@@ -1037,8 +1037,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Z);
         }
-    }
-    
+    } //Handels key presses for flight assist on function
+
     public static void targetEnemy()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1050,8 +1050,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Y);
         }
-    }
-    
+    } //Handels key presses for target enemy function
+
     public static void screenshot()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1063,8 +1063,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.F10);
         }
-    }
-    
+    } //Handels key presses for screenshot function
+
     public static void launch()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1088,8 +1088,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Space);
         }
-    }
-    
+    } //Handels key presses for launch function
+
     public static void lightsOff()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1101,8 +1101,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Insert);
         }
-    }
-    
+    } //Handels key presses for lights off function
+
     public static void lightsOn()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1114,8 +1114,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Insert);
         }
-    }
-    
+    } //Handels key presses for lights on function
+
     public static void enginesForward100()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1127,8 +1127,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Add);
         }
-    }
-    
+    } //Handels key presses for engines forward 100% function
+
     public static void enginesForward90()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1144,8 +1144,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    }
-    
+    } //Handels key presses for engines forward 90% function
+
     public static void enginesForward80()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1165,8 +1165,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    }
-    
+    } //Handels key presses for engines forward 80% function
+
     public static void enginesForward75()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1178,8 +1178,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad3);
         }
-    }
-    
+    } //Handels key presses for engines forward 75% function
+
     public static void enginesForward70()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1199,8 +1199,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    }
-    
+    } //Handels key presses for engines forward 70% function
+
     public static void enginesForward60()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1216,8 +1216,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    }
-    
+    } //Handels key presses for engines forward 60% function
+
     public static void enginesForward50()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1229,8 +1229,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad2);
         }
-    }
-    
+    } //Handels key presses for engines forward 50% function
+
     public static void enginesForward40()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1246,8 +1246,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    }
-    
+    } //Handels key presses for engines forward 40% function
+
     public static void enginesForward30()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1267,8 +1267,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    }
-    
+    } //Handels key presses for engines forward 30% function
+
     public static void enginesForward25()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1280,8 +1280,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad1);
         }
-    }
-    
+    } //Handels key presses for engines forward 25% function
+
     public static void enginesForward20()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1301,8 +1301,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    }
-    
+    } //Handels key presses for engines forward 20% function
+
     public static void enginesForward10()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1318,8 +1318,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    }
-    
+    } //Handels key presses for engines forward 10% function
+
     public static void nextFireGroup()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1335,7 +1335,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.RShiftKey);
         }
-    }
+    } //Handels key presses for next fire group select function
 
     public static void nextHostile()
     {
@@ -1348,7 +1348,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.H);
         }
-    }
+    } //Handels key presses for next hostile select function
 
     public static void nextSystem()
     {
@@ -1361,8 +1361,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.M);
         }
-    }
-    
+    } //Handels key presses for next system select function
+
     public static void nextShip()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1374,8 +1374,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.G);
         }
-    }
-    
+    } //Handels key presses for next ship select function
+
     public static void prevFireGroup()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1391,8 +1391,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.RShiftKey);
         }
-    }
-    
+    } //Handels key presses for previous fire group select function
+
     public static void prevHostile()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1404,8 +1404,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.N);
         }
-    }
-    
+    } //Handels key presses for previous hostile select function
+
     public static void prevShip()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1417,8 +1417,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.B);
         }
-    }
-    
+    } //Handels key presses for previous ship select function
+
     public static void requestDocking()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1462,8 +1462,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D1);
         }
-    }
-    
+    } //Handels key presses for request docking function
+
     public static void centerHeadset()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1475,8 +1475,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.F12);
         }
-    }
-    
+    } //Handels key presses for center headset function
+
     public static void retractHardpoints()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1488,8 +1488,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.U);
         }
-    }
-    
+    } //Handels key presses for retract hardpoints function
+
     public static void retractLandingGear()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1501,8 +1501,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.L);
         }
-    }
-    
+    } //Handels key presses for retract landing gear function
+
     public static void retractCargoScoop()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1514,8 +1514,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Home);
         }
-    }
-    
+    } //Handels key presses for retract cargo scoop function
+
     public static void enginesBack100()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1527,8 +1527,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Subtract);
         }
-    }
-    
+    } //Handels key presses for engines reverse 100% function
+
     public static void enginesBack75()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1540,8 +1540,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad9);
         }
-    }
-    
+    } //Handels key presses for engines reverse 75% function
+
     public static void enginesBack50()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1553,8 +1553,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad8);
         }
-    }
-    
+    } //Handels key presses for engines reverse 50% function
+
     public static void enginesBack25()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1566,8 +1566,8 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad7);
         }
-    }
-    
+    } //Handels key presses for engines reverse 25% function
+
     public static void SRVRecovery()
     {
         Process p = Process.GetProcessesByName("EliteDangerous64").FirstOrDefault();
@@ -1599,7 +1599,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D3);
         }
-    }
+    } //Handels key presses for SRV recovery function
 
     public static void cutEngines()
     {
@@ -1612,7 +1612,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.X);
         }
-    }
+    } //Handels key presses for cut engines function
 
     private static void HandleChangedLinesShip(shipInfo shipInfoMaster)
     {
@@ -1997,7 +1997,7 @@ public class Program
                 Console.WriteLine("");
             }
         }
-    }
+    } //Handels the ship info update when new event is logged
 
     public class AddedContentReader
     {
@@ -2033,6 +2033,6 @@ public class Program
         {
             return _reader.ReadLine();
         }
-    }
+    } //Checks for added content 
 
 }
