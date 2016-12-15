@@ -357,7 +357,7 @@ public class Program
                                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                                     Console.WriteLine("balencePower");
                                     Console.ResetColor();
-                                    Task.Run(() => cancelDocking());
+                                    Task.Run(() => balencePower());
 
                                 }
                                 else if (shipCommandsMaster.command == "cancelDocking")
