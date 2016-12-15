@@ -767,7 +767,7 @@ public class Program
             Keyboard.KeyUp(Keys.Tab);
         }
         return;
-    } //Handels key presses for boost function
+    } //Handles key presses for boost function
 
     public static void balencePower()
     {
@@ -780,7 +780,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Down);
         }
-    } //Handels key presses for balance power function
+    } //Handles key presses for balance power function
 
     public static void cancelDocking()
     {
@@ -825,7 +825,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D1);
         }
-    } //Handels key presses for cancel docking function
+    } //Handles key presses for cancel docking function
 
     public static void deployChaff()
     {
@@ -838,7 +838,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.C);
         }
-    } //Handels key presses for deploy chaff function
+    } //Handles key presses for deploy chaff function
 
     public static void deployHardpoints()
     {
@@ -851,7 +851,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.U);
         }
-    } //Handels key presses for deploy hardpoints function
+    } //Handles key presses for deploy hardpoints function
 
     public static void deployLandingGear()
     {
@@ -865,7 +865,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.L);
         }
-    } //Handels key presses for deploy landing gear function
+    } //Handles key presses for deploy landing gear function
 
     public static void deployCargoScoop()
     {
@@ -878,7 +878,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Home);
         }
-    } //Handels key presses for deploy cargo scoop function
+    } //Handles key presses for deploy cargo scoop function
 
     public static void deploySRV()
     {
@@ -907,7 +907,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D3);
         }
-    } //Handels key presses for deploy SRV function
+    } //Handles key presses for deploy SRV function
 
     public static void exitFramshift()
     {
@@ -920,7 +920,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.J);
         }
-    } //Handels key presses for exit frameshift function
+    } //Handles key presses for exit frameshift function
 
     public static void exitCruise()
     {
@@ -933,7 +933,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Divide);
         }
-    } //Handels key presses for exit cruise function
+    } //Handles key presses for exit cruise function
 
     public static void powerToEngines()
     {
@@ -946,7 +946,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Up);
         }
-    } //Handels key presses for power to engines function
+    } //Handles key presses for power to engines function
 
     public static void powerToSystems()
     {
@@ -959,7 +959,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Left);
         }
-    } //Handels key presses for power to systems function
+    } //Handles key presses for power to systems function
 
     public static void powerToWeapons()
     {
@@ -972,7 +972,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Right);
         }
-    } //Handels key presses for power to weapons function
+    } //Handles key presses for power to weapons function
 
     public static void emergencyStop()
     {
@@ -985,7 +985,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.J);
         }
-    } //Handels key presses for emegency stop function
+    } //Handles key presses for emegency stop function
 
     public static void engageFrameshift()
     {
@@ -998,7 +998,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.J);
         }
-    } //Handels key presses for engage frameshift function
+    } //Handles key presses for engage frameshift function
 
     public static void engageCruise()
     {
@@ -1011,7 +1011,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Divide);
         }
-    } //Handels key presses for engage crusie function
+    } //Handles key presses for engage crusie function
 
     public static void fightAssistOff()
     {
@@ -1024,7 +1024,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Z);
         }
-    } //Handels key presses for fight assist off function
+    } //Handles key presses for fight assist off function
 
     public static void fightAssistOn()
     {
@@ -1037,7 +1037,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Z);
         }
-    } //Handels key presses for flight assist on function
+    } //Handles key presses for flight assist on function
 
     public static void targetEnemy()
     {
@@ -1050,7 +1050,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Y);
         }
-    } //Handels key presses for target enemy function
+    } //Handles key presses for target enemy function
 
     public static void screenshot()
     {
@@ -1063,7 +1063,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.F10);
         }
-    } //Handels key presses for screenshot function
+    } //Handles key presses for screenshot function
 
     public static void launch()
     {
@@ -1088,7 +1088,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Space);
         }
-    } //Handels key presses for launch function
+    } //Handles key presses for launch function
 
     public static void lightsOff()
     {
@@ -1101,7 +1101,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Insert);
         }
-    } //Handels key presses for lights off function
+    } //Handles key presses for lights off function
 
     public static void lightsOn()
     {
@@ -1114,7 +1114,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Insert);
         }
-    } //Handels key presses for lights on function
+    } //Handles key presses for lights on function
 
     public static void enginesForward100()
     {
@@ -1127,7 +1127,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Add);
         }
-    } //Handels key presses for engines forward 100% function
+    } //Handles key presses for engines forward 100% function
 
     public static void enginesForward90()
     {
@@ -1144,7 +1144,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    } //Handels key presses for engines forward 90% function
+    } //Handles key presses for engines forward 90% function
 
     public static void enginesForward80()
     {
@@ -1165,7 +1165,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    } //Handels key presses for engines forward 80% function
+    } //Handles key presses for engines forward 80% function
 
     public static void enginesForward75()
     {
@@ -1178,7 +1178,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad3);
         }
-    } //Handels key presses for engines forward 75% function
+    } //Handles key presses for engines forward 75% function
 
     public static void enginesForward70()
     {
@@ -1199,7 +1199,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    } //Handels key presses for engines forward 70% function
+    } //Handles key presses for engines forward 70% function
 
     public static void enginesForward60()
     {
@@ -1216,7 +1216,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    } //Handels key presses for engines forward 60% function
+    } //Handles key presses for engines forward 60% function
 
     public static void enginesForward50()
     {
@@ -1229,7 +1229,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad2);
         }
-    } //Handels key presses for engines forward 50% function
+    } //Handles key presses for engines forward 50% function
 
     public static void enginesForward40()
     {
@@ -1246,7 +1246,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    } //Handels key presses for engines forward 40% function
+    } //Handles key presses for engines forward 40% function
 
     public static void enginesForward30()
     {
@@ -1267,7 +1267,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.S);
         }
-    } //Handels key presses for engines forward 30% function
+    } //Handles key presses for engines forward 30% function
 
     public static void enginesForward25()
     {
@@ -1280,7 +1280,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad1);
         }
-    } //Handels key presses for engines forward 25% function
+    } //Handles key presses for engines forward 25% function
 
     public static void enginesForward20()
     {
@@ -1301,7 +1301,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    } //Handels key presses for engines forward 20% function
+    } //Handles key presses for engines forward 20% function
 
     public static void enginesForward10()
     {
@@ -1318,7 +1318,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.W);
         }
-    } //Handels key presses for engines forward 10% function
+    } //Handles key presses for engines forward 10% function
 
     public static void nextFireGroup()
     {
@@ -1335,7 +1335,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.RShiftKey);
         }
-    } //Handels key presses for next fire group select function
+    } //Handles key presses for next fire group select function
 
     public static void nextHostile()
     {
@@ -1348,7 +1348,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.H);
         }
-    } //Handels key presses for next hostile select function
+    } //Handles key presses for next hostile select function
 
     public static void nextSystem()
     {
@@ -1361,7 +1361,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.M);
         }
-    } //Handels key presses for next system select function
+    } //Handles key presses for next system select function
 
     public static void nextShip()
     {
@@ -1374,7 +1374,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.G);
         }
-    } //Handels key presses for next ship select function
+    } //Handles key presses for next ship select function
 
     public static void prevFireGroup()
     {
@@ -1391,7 +1391,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.RShiftKey);
         }
-    } //Handels key presses for previous fire group select function
+    } //Handles key presses for previous fire group select function
 
     public static void prevHostile()
     {
@@ -1404,7 +1404,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.N);
         }
-    } //Handels key presses for previous hostile select function
+    } //Handles key presses for previous hostile select function
 
     public static void prevShip()
     {
@@ -1417,7 +1417,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.B);
         }
-    } //Handels key presses for previous ship select function
+    } //Handles key presses for previous ship select function
 
     public static void requestDocking()
     {
@@ -1462,7 +1462,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D1);
         }
-    } //Handels key presses for request docking function
+    } //Handles key presses for request docking function
 
     public static void centerHeadset()
     {
@@ -1475,7 +1475,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.F12);
         }
-    } //Handels key presses for center headset function
+    } //Handles key presses for center headset function
 
     public static void retractHardpoints()
     {
@@ -1488,7 +1488,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.U);
         }
-    } //Handels key presses for retract hardpoints function
+    } //Handles key presses for retract hardpoints function
 
     public static void retractLandingGear()
     {
@@ -1501,7 +1501,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.L);
         }
-    } //Handels key presses for retract landing gear function
+    } //Handles key presses for retract landing gear function
 
     public static void retractCargoScoop()
     {
@@ -1514,7 +1514,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Home);
         }
-    } //Handels key presses for retract cargo scoop function
+    } //Handles key presses for retract cargo scoop function
 
     public static void enginesBack100()
     {
@@ -1527,7 +1527,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.Subtract);
         }
-    } //Handels key presses for engines reverse 100% function
+    } //Handles key presses for engines reverse 100% function
 
     public static void enginesBack75()
     {
@@ -1540,7 +1540,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad9);
         }
-    } //Handels key presses for engines reverse 75% function
+    } //Handles key presses for engines reverse 75% function
 
     public static void enginesBack50()
     {
@@ -1553,7 +1553,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad8);
         }
-    } //Handels key presses for engines reverse 50% function
+    } //Handles key presses for engines reverse 50% function
 
     public static void enginesBack25()
     {
@@ -1566,7 +1566,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.NumPad7);
         }
-    } //Handels key presses for engines reverse 25% function
+    } //Handles key presses for engines reverse 25% function
 
     public static void SRVRecovery()
     {
@@ -1599,7 +1599,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.D3);
         }
-    } //Handels key presses for SRV recovery function
+    } //Handles key presses for SRV recovery function
 
     public static void cutEngines()
     {
@@ -1612,7 +1612,7 @@ public class Program
             Thread.Sleep(30);
             Keyboard.KeyUp(Keys.X);
         }
-    } //Handels key presses for cut engines function
+    } //Handles key presses for cut engines function
 
     private static void HandleChangedLinesShip(shipInfo shipInfoMaster)
     {
@@ -1997,7 +1997,7 @@ public class Program
                 Console.WriteLine("");
             }
         }
-    } //Handels the ship info update when new event is logged
+    } //Handles the ship info update when new event is logged
 
     public class AddedContentReader
     {
