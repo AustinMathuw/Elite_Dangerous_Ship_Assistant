@@ -10,31 +10,31 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>8d15133f-ebb4-4554-b114-2205c7af8997</PackageIdentityName>
     <PackageIdentityPublisher>CN=sirau</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>A78A8D0872BC8CE1C9AAB1EF781E47557A8CB221F431745E60AB2F9EDCD79700</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>8d15133f-ebb4-4554-b114-2205c7af8997_1.0.15.0_x86__pennsxfy7e5pp</RegisteredPackageMoniker>
+    <RegisteredManifestChecksum>F2238AE27FD9563E9A044EDE24EE4273C6015C5464A5AFED968346BA99C11239</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>8d15133f-ebb4-4554-b114-2205c7af8997_1.0.17.0_x86__pennsxfy7e5pp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8d15133f-ebb4-4554-b114-2205c7af8997_pennsxfy7e5pp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8d15133f-ebb4-4554-b114-2205c7af8997</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=sirau</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.15.0</RegisteredVersion>
+    <RegisteredVersion>1.0.17.0</RegisteredVersion>
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-09T21:51:11.203</Modified>
+      <Modified>2016-12-19T15:27:40.603</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.exe">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.exe">
       <PackagePath>entrypoint\PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-12-09T21:51:10.590</Modified>
+      <Modified>2016-12-19T15:27:38.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\BehaviorsXamlSDKManaged\12.0\References\CommonConfiguration\Neutral\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
@@ -524,49 +524,49 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-12T03:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-11-15T00:44:38.016</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-11-15T00:44:39.105</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2016-11-15T00:44:38.710</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-15T00:44:39.009</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-15T00:44:39.020</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-15T00:44:39.031</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-15T00:44:39.041</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-15T00:44:39.051</Modified>
+      <Modified>2016-12-11T23:02:57.871</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-15T00:44:39.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.xr.xml">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Debug\PubnubWindowsStore.xr.xml">
       <PackagePath>PubnubWindowsStore.xr.xml</PackagePath>
       <Modified>2016-12-08T06:13:12.394</Modified>
     </AppxPackagedFile>
@@ -574,14 +574,14 @@
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-10-02T00:10:54.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-08T23:48:51.663</Modified>
+      <Modified>2016-12-19T15:27:40.225</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Debug\Core\PubnubWindowsStore.exe">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Debug\Core\PubnubWindowsStore.exe">
       <PackagePath>PubnubWindowsStore.exe</PackagePath>
-      <Modified>2016-12-09T21:51:11.192</Modified>
+      <Modified>2016-12-19T15:27:40.593</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

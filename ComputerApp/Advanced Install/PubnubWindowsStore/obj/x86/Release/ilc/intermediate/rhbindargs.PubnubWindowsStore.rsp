@@ -6,10 +6,10 @@
 "/nativelink:C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\x86\ilc\lib\Native\vmath.lib"
 /customImports
 /methodBodyFolding
-"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\MDIL\PubnubWindowsStore.mdilexe"
-"/i:C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\MDIL\"
-/out:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\Native\PubnubWindowsStore.exe"
-"/res:C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\Native.res"
+"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\MDIL\PubnubWindowsStore.mdilexe"
+"/i:C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\MDIL\"
+/out:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\Native\PubnubWindowsStore.exe"
+"/res:C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\intermediate\Native.res"
 "/i:C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.NET.Native.Framework.1.3\1.3\x86\ret\MDIL"
 /shimexe
 /classlib:SharedLibrary

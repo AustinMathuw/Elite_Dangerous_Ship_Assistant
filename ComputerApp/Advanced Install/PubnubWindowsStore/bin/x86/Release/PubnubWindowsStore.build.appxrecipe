@@ -10,61 +10,61 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>8d15133f-ebb4-4554-b114-2205c7af8997</PackageIdentityName>
     <PackageIdentityPublisher>CN=sirau</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\clrcompression.dll">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\clrcompression.dll">
       <PackagePath>clrcompression.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\PubnubWindowsStore.dll">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\PubnubWindowsStore.dll">
       <PackagePath>PubnubWindowsStore.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\PubnubWindowsStore.exe">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\PubnubWindowsStore.exe">
       <PackagePath>PubnubWindowsStore.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\PubnubWindowsStore.pdb">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\PubnubWindowsStore.pdb">
       <PackagePath>PubnubWindowsStore.pdb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\bin\x86\Release\ilc\resources.pri">
+    <AppxPackagedFile Include="C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\bin\x86\Release\ilc\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
