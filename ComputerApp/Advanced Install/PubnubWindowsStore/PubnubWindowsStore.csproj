@@ -22,7 +22,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
     <PackageCertificateThumbprint>0D48F888668ED57A284227BC4A53F9C7C4E834C6</PackageCertificateThumbprint>
-    <AppxPackageDir>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Simple Install\Universal Windows App\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Simple Install\</AppxPackageDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

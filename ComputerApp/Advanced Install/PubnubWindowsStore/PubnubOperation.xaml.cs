@@ -30,10 +30,10 @@ namespace PubnubWindowsStore
     public sealed partial class PubnubOperation : Page
     {
 
-        string historyResult = "";
+        string subscribeMessageResult = "";
         string publishSend = "";
         string publishChannel = "";
-        string historyChannel = "";
+        string subscribeChannel = "";
         PubnubConfigData data = null;
         static Pubnub pubnub = null;
 
@@ -79,17 +79,13 @@ namespace PubnubWindowsStore
         /// Callback method captures the response in JSON string format for all operations
         /// </summary>
         /// <param name="result"></param>
-        
-
-
-
         /// <summary>
         /// Callback method for error messages
         /// </summary>
         /// <param name="result"></param>
         void PubnubDisplayErrorMessage(PubnubClientError result) //Error Callback
         {
-            //DisplayHistoryMessageInTextBox(result.Description);
+            
 
             switch (result.StatusCode)
             {
@@ -213,20 +209,20 @@ namespace PubnubWindowsStore
             Window.Current.Content = frame;
         }
 
-        void PubnubHistoryCallbackResult(string result)
+        void PubnubSubscribeCallbackResult(string result)
         {
 
-            updateHistoryResult(result);
-        } //Handels Command history
+            updateSubscribeResult(result);
+        } //Handels Command subscribe
 
-        public void updateHistoryResult(string result)
+        public void updateSubscribeResult(string result)
         {
-            if(historyResult != result)
+            if(subscribeMessageResult != result)
             {
-                historyResult = result;
-                DisplayHistoryMessageInTextBox(result);
+                subscribeMessageResult = result;
+                DisplaySubscribeMessageInTextBox(result);
             }
-        } //Handels Command history
+        } //Handels Command subscribe
 
         void PubnubPublishCallbackResult(string result)
         {
@@ -234,6 +230,15 @@ namespace PubnubWindowsStore
         }
 
         private void PubnubDisconnectCallbackResult(string result)
+        {
+            
+        }
+
+        void DisplaySubscribeConnectStatusMessage(string result)
+        {
+            
+        }
+        void DisplayErrorMessage(PubnubClientError pubnubError)
         {
             
         }
@@ -253,23 +258,21 @@ namespace PubnubWindowsStore
             await FileIO.WriteTextAsync(shipCommand,"");
             long lastUpdate = 0;
             publishChannel = data.channelName + "A";
-            historyChannel = data.channelName + "B";
+            subscribeChannel = data.channelName + "B";
+
+            pubnub.Subscribe<string>(
+                subscribeChannel,
+                PubnubSubscribeCallbackResult,
+                DisplaySubscribeConnectStatusMessage,
+                DisplayErrorMessage
+            );
+
             while (true)
             {
                 long milliseconds = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
                 if (milliseconds - lastUpdate > 5)
                 {
                     lastUpdate = milliseconds;
-
-                    //History Commands
-                    try
-                    {
-                        history(historyChannel);
-                    }
-                    catch
-                    {
-
-                    }
                     
 
                     //Publish Info
@@ -280,10 +283,11 @@ namespace PubnubWindowsStore
                         string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
                         string publishMsg = shipInfoText.Replace("\\", "");
                         bool storeInHistory = true;
-                        pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
+                        
 
                         if (publishSend != publishMsg)
                         {
+                            pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
                             publishSend = publishMsg;
                             string shipInfoTextBox = "";
                             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -311,12 +315,7 @@ namespace PubnubWindowsStore
             };
         } //Main function loop
 
-        private void history(string historyChannel)
-        {
-            pubnub.DetailedHistory<string>(historyChannel, 1, true, PubnubHistoryCallbackResult, PubnubDisplayErrorMessage);
-        } //Gets commands
-
-        private async void DisplayHistoryMessageInTextBox(string msg)
+        private async void DisplaySubscribeMessageInTextBox(string msg)
         {
             var shipCommand = await KnownFolders.DocumentsLibrary.GetFileAsync("Elite Dangerous Ship Assistant\\commands.json");
 
