@@ -67,7 +67,7 @@ namespace PubnubWindowsStore
             if (data != null)
             {
                 pubnub = new Pubnub(data.publishKey, data.subscribeKey, data.secretKey, data.cipherKey, data.ssl); //Initialize PubNub
-                pubnub.EnableResumeOnReconnect = data.resumeOnReconnect; 
+                pubnub.EnableResumeOnReconnect = data.resumeOnReconnect;
 
                 
 
