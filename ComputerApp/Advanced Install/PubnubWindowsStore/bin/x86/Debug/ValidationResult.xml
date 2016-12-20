@@ -1,39 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type='text/xsl' href='C:\ProgramData\Windows App Certification Kit\results.xsl'?>
-<REPORT xml:lang="en-US" OVERALL_RESULT="FAIL" VERSION="10.0.14393.33" LATEST_VERSION="TRUE" UPDATE_DOWNLOAD_URL="" TOOLSET_ARCHITECTURE="x64" SecureBoot="FALSE" APP_TYPE="UapApp" PUBLISHER_DISPLAY_NAME="CN=sirau" APP_NAME="" APP_VERSION="" OSVERSION="10.0.14393.0" OS="Microsoft Windows 10 Pro" PER_USER_APPLICATION="" PARTIAL_RUN="FALSE" LCID="1033" VALIDATION_TYPE="UI" ReportGenerationTime="12/8/2016 12:33:44 AM" ID="ef9b0e42f80bcd2b289dd796a18244a7">
+<REPORT xml:lang="en-US" OVERALL_RESULT="FAIL" VERSION="10.0.14393.33" LATEST_VERSION="TRUE" UPDATE_DOWNLOAD_URL="" TOOLSET_ARCHITECTURE="x64" SecureBoot="FALSE" APP_TYPE="UapApp" PUBLISHER_DISPLAY_NAME="CN=sirau" APP_NAME="" APP_VERSION="" OSVERSION="10.0.14393.0" OS="Microsoft Windows 10 Pro" PER_USER_APPLICATION="" PARTIAL_RUN="FALSE" LCID="1033" VALIDATION_TYPE="UI" ReportGenerationTime="12/20/2016 10:53:03 AM" ID="36a47e70dc6ed30220c1552669aa8ecc">
   <REQUIREMENTS>
     <REQUIREMENT NUMBER="10" TITLE="Deployment and launch tests" RATIONALE="Application failures such as crashes and hangs are a major disruption to users and cause frustration. Eliminating such failures improves application stability and reliability, and overall, provides users with a better application experience.">
-      <TEST INDEX="50" NAME="Bytecode generation" DESCRIPTION="Byte code generation should be able to complete successfully for packages containing an HTML5 Windows Store app." EXECUTIONTIME="00h:00m:00s.76ms">
+      <TEST INDEX="50" NAME="Bytecode generation" DESCRIPTION="Byte code generation should be able to complete successfully for packages containing an HTML5 Windows Store app." EXECUTIONTIME="00h:00m:00s.75ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="79" NAME="Background tasks cancelation handler" DESCRIPTION="App should implement event handler to handle background task cancelation request." EXECUTIONTIME="00h:00m:20s.76ms">
+      <TEST INDEX="79" NAME="Background tasks cancelation handler" DESCRIPTION="App should implement event handler to handle background task cancelation request." EXECUTIONTIME="00h:00m:20s.07ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="81" NAME="Platform version launch" DESCRIPTION="App should not mis-use OSVersionInfo API to provide users functionality that is specific to the OS." EXECUTIONTIME="00h:00m:17s.33ms">
+      <TEST INDEX="81" NAME="Platform version launch" DESCRIPTION="App should not mis-use OSVersionInfo API to provide users functionality that is specific to the OS." EXECUTIONTIME="00h:00m:17s.29ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="47" NAME="App launch" DESCRIPTION="App launch tests." EXECUTIONTIME="00h:00m:17s.33ms">
+      <TEST INDEX="47" NAME="App launch" DESCRIPTION="App launch tests." EXECUTIONTIME="00h:00m:17s.29ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="80" NAME="App prelaunch" DESCRIPTION="App should pass app prelaunch validation." EXECUTIONTIME="00h:01m:01s.42ms">
+      <TEST INDEX="80" NAME="App prelaunch" DESCRIPTION="App should pass app prelaunch validation." EXECUTIONTIME="00h:00m:57s.32ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="21" NAME="Crashes and hangs" DESCRIPTION="Do not crash or hang during the testing process." EXECUTIONTIME="00h:00m:01s.71ms">
+      <TEST INDEX="21" NAME="Crashes and hangs" DESCRIPTION="Do not crash or hang during the testing process." EXECUTIONTIME="00h:00m:01s.70ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="12" TITLE="Package compliance test" RATIONALE="The package manifest was missing one or more required attributes.">
-      <TEST INDEX="77" NAME="Application count" DESCRIPTION="One package should not define more than one app in the manifest." EXECUTIONTIME="00h:00m:00s.76ms">
+      <TEST INDEX="77" NAME="Application count" DESCRIPTION="One package should not define more than one app in the manifest." EXECUTIONTIME="00h:00m:00s.73ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="31" NAME="App manifest" DESCRIPTION="App manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:00s.81ms">
+      <TEST INDEX="31" NAME="App manifest" DESCRIPTION="App manifest must include valid entries for all required fields." EXECUTIONTIME="00h:00m:00s.79ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
@@ -45,37 +45,37 @@
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="83" NAME="Restricted namespace" DESCRIPTION="Check if any restricted namespace is referenced in the appx manifest." EXECUTIONTIME="00h:00m:00s.75ms">
+      <TEST INDEX="83" NAME="Restricted namespace" DESCRIPTION="Check if any restricted namespace is referenced in the appx manifest." EXECUTIONTIME="00h:00m:00s.73ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="14" TITLE="Windows security features test" RATIONALE="Applications must opt-into Windows security features.">
-      <TEST INDEX="33" NAME="Binary analyzer" DESCRIPTION="Analysis of security features enabled on binaries" EXECUTIONTIME="00h:00m:01s.02ms">
+      <TEST INDEX="33" NAME="Binary analyzer" DESCRIPTION="Analysis of security features enabled on binaries" EXECUTIONTIME="00h:00m:01s.00ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="70" NAME="Banned file analyzer" DESCRIPTION="Analysis of application to detect known insecure files" EXECUTIONTIME="00h:00m:00s.71ms">
+      <TEST INDEX="70" NAME="Banned file analyzer" DESCRIPTION="Analysis of application to detect known insecure files" EXECUTIONTIME="00h:00m:00s.69ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="62" NAME="Private code signing" DESCRIPTION="App should not package private code signing key files." EXECUTIONTIME="00h:00m:00s.77ms">
+      <TEST INDEX="62" NAME="Private code signing" DESCRIPTION="App should not package private code signing key files." EXECUTIONTIME="00h:00m:00s.75ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="15" TITLE="Supported API test" RATIONALE="The application should only refer to the APIs allowed by the Windows SDK for Windows Store Apps.">
-      <TEST INDEX="38" NAME="Supported APIs" DESCRIPTION="Windows Store App must only use supported platform APIs." EXECUTIONTIME="00h:00m:01s.77ms">
+      <TEST INDEX="38" NAME="Supported APIs" DESCRIPTION="Windows Store App must only use supported platform APIs." EXECUTIONTIME="00h:00m:01s.82ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="19" TITLE="App manifest resources tests" RATIONALE="The App Package Manifest should have valid resources defined in the resources.pri file, as per the App Packaging Specification and App Manifest Schema.">
-      <TEST INDEX="45" NAME="App resources" DESCRIPTION="The package should have valid resources defined in the resources.pri file." EXECUTIONTIME="00h:00m:00s.61ms">
+      <TEST INDEX="45" NAME="App resources" DESCRIPTION="The package should have valid resources defined in the resources.pri file." EXECUTIONTIME="00h:00m:00s.60ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="61" NAME="Branding" DESCRIPTION="App should not use the default images packed by windows SDK samples or Visual Studio." EXECUTIONTIME="00h:00m:01s.09ms">
+      <TEST INDEX="61" NAME="Branding" DESCRIPTION="App should not use the default images packed by windows SDK samples or Visual Studio." EXECUTIONTIME="00h:00m:01s.05ms">
         <MESSAGES>
           <MESSAGE TEXT="Image file StoreLogo.png is a default image." />
           <MESSAGE TEXT="Image file Square44x44Logo.scale-200.png is a default image." />
@@ -88,19 +88,19 @@
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="20" TITLE="Debug configuration test" RATIONALE="The App should not install any debug binaries.">
-      <TEST INDEX="46" NAME="Debug configuration" DESCRIPTION="The App should not install any debug binaries." EXECUTIONTIME="00h:00m:00s.79ms">
+      <TEST INDEX="46" NAME="Debug configuration" DESCRIPTION="The App should not install any debug binaries." EXECUTIONTIME="00h:00m:00s.77ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="21" TITLE="File encoding test" RATIONALE="Packages containing an HTML5 Windows Store app must have correct file encoding.">
-      <TEST INDEX="49" NAME="UTF-8 file encoding" DESCRIPTION="Packages containing an HTML5 Windows Store app must have correct file encoding." EXECUTIONTIME="00h:00m:00s.78ms">
+      <TEST INDEX="49" NAME="UTF-8 file encoding" DESCRIPTION="Packages containing an HTML5 Windows Store app must have correct file encoding." EXECUTIONTIME="00h:00m:00s.75ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="23" TITLE="App Capabilities test" RATIONALE="Packages declaring special-use capabilities will have to provide justifications during the onboarding process.">
-      <TEST INDEX="52" NAME="Special use capabilities" DESCRIPTION="Packages declaring special-use capabilities will have to provide justifications during the onboarding process." EXECUTIONTIME="00h:00m:00s.76ms">
+      <TEST INDEX="52" NAME="Special use capabilities" DESCRIPTION="Packages declaring special-use capabilities will have to provide justifications during the onboarding process." EXECUTIONTIME="00h:00m:00s.77ms">
         <MESSAGES>
           <MESSAGE TEXT="The app has declared the documentsLibrary capability." />
         </MESSAGES>
@@ -108,7 +108,7 @@
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="24" TITLE="Windows Runtime metadata validation" RATIONALE="Metadata needs to be conformant and consistent across all generation sources.">
-      <TEST INDEX="56" NAME="ExclusiveTo attribute" DESCRIPTION="A class must not implement an interface that is marked ExclusiveTo another class." EXECUTIONTIME="00h:00m:07s.46ms">
+      <TEST INDEX="56" NAME="ExclusiveTo attribute" DESCRIPTION="A class must not implement an interface that is marked ExclusiveTo another class." EXECUTIONTIME="00h:00m:07s.62ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
@@ -116,15 +116,15 @@
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="55" NAME="Type name case-sensitivity" DESCRIPTION="Namespace and type names must not vary only by casing." EXECUTIONTIME="00h:00m:00s.65ms">
+      <TEST INDEX="55" NAME="Type name case-sensitivity" DESCRIPTION="Namespace and type names must not vary only by casing." EXECUTIONTIME="00h:00m:00s.67ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="54" NAME="Type name correctness" DESCRIPTION="Only system types can be in the Windows namespace and no types can be in the global namespace." EXECUTIONTIME="00h:00m:00s.65ms">
+      <TEST INDEX="54" NAME="Type name correctness" DESCRIPTION="Only system types can be in the Windows namespace and no types can be in the global namespace." EXECUTIONTIME="00h:00m:00s.67ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
-      <TEST INDEX="58" NAME="General metadata correctness" DESCRIPTION="Metadata files must meet various requirements in order to be valid and correct." EXECUTIONTIME="00h:00m:07s.17ms">
+      <TEST INDEX="58" NAME="General metadata correctness" DESCRIPTION="Metadata files must meet various requirements in order to be valid and correct." EXECUTIONTIME="00h:00m:07s.40ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
@@ -134,7 +134,7 @@
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="25" TITLE="Package sanity test" RATIONALE="Validation of the app package contents to ensure correctness.">
-      <TEST INDEX="63" NAME="Platform appropriate files" DESCRIPTION="App should not install files that do not match the target processor architecture." EXECUTIONTIME="00h:00m:00s.74ms">
+      <TEST INDEX="63" NAME="Platform appropriate files" DESCRIPTION="App should not install files that do not match the target processor architecture." EXECUTIONTIME="00h:00m:00s.73ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
@@ -144,7 +144,7 @@
       </TEST>
     </REQUIREMENT>
     <REQUIREMENT NUMBER="27" TITLE="Resource Usage Test" RATIONALE="WinJS background tasks need to call close() to free resource.">
-      <TEST INDEX="68" NAME="WinJS background task" DESCRIPTION="WinJS background tasks need to call close() to free resource." EXECUTIONTIME="00h:00m:00s.94ms">
+      <TEST INDEX="68" NAME="WinJS background task" DESCRIPTION="WinJS background tasks need to call close() to free resource." EXECUTIONTIME="00h:00m:00s.95ms">
         <MESSAGES />
         <RESULT><![CDATA[PASS]]></RESULT>
       </TEST>
@@ -152,12 +152,12 @@
   </REQUIREMENTS>
   <APPLICATIONS>
     <Installed_Programs>
-      <Program Name="8d15133f-ebb4-4554-b114-2205c7af8997" Type="Application" Source="AppxPackage" Publisher="CN=sirau" Version="1.0.13.0" Language="1033" InstallDate="12/08/2016 05:31:12" OSVersionAtInstallTime="10.0.0.14393" RootDirPath="c:\program files\windowsapps\8d15133f-ebb4-4554-b114-2205c7af8997_1.0.13.0_x64__pennsxfy7e5pp" Id="000018e3c8e706ac297371d8914f8d8c15dd00000904">
+      <Program Name="8d15133f-ebb4-4554-b114-2205c7af8997" Type="Application" Source="AppxPackage" Publisher="CN=sirau" Version="1.0.18.0" Language="1033" InstallDate="12/20/2016 15:50:37" OSVersionAtInstallTime="10.0.0.14393" RootDirPath="c:\program files\windowsapps\8d15133f-ebb4-4554-b114-2205c7af8997_1.0.18.0_x64__pennsxfy7e5pp" Id="0000d9610eb8b1e3177addc483b81d11617d00000904">
         <Indicators>
           <WindowsStoreAppManifestIndicators>
-            <PackageManifest PackageFullName="8d15133f-ebb4-4554-b114-2205c7af8997_1.0.13.0_x64__pennsxfy7e5pp">
+            <PackageManifest PackageFullName="8d15133f-ebb4-4554-b114-2205c7af8997_1.0.18.0_x64__pennsxfy7e5pp">
               <Package>
-                <Identity Name="8d15133f-ebb4-4554-b114-2205c7af8997" Publisher="CN=sirau" Version="1.0.13.0" ProcessorArchitecture="x64" />
+                <Identity Name="8d15133f-ebb4-4554-b114-2205c7af8997" Publisher="CN=sirau" Version="1.0.18.0" ProcessorArchitecture="x64" />
                 <PhoneIdentity PhoneProductId="8d15133f-ebb4-4554-b114-2205c7af8997" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
                 <Properties>
                   <DisplayName>PubnubWindowsStore</DisplayName>
@@ -176,7 +176,7 @@
                 </Resources>
                 <Applications>
                   <Application Id="App" Executable="PubnubWindowsStore.exe" EntryPoint="PubnubWindowsStore.App">
-                    <VisualElements DisplayName="PubnubWindowsStore" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="PubnubWindowsStore" BackgroundColor="transparent" ForegroundText="light">
+                    <VisualElements DisplayName="Elite Dangerous Alexa Send" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="PubnubWindowsStore" BackgroundColor="transparent" ForegroundText="light">
                       <DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
                       <SplashScreen Image="Assets\SplashScreen.png" />
                     </VisualElements>
@@ -201,15 +201,15 @@
             </PackageManifest>
             <BundleManifest PackageFamilyName="8d15133f-ebb4-4554-b114-2205c7af8997_pennsxfy7e5pp">
               <Bundle SchemaVersion="2.0">
-                <Identity Name="8d15133f-ebb4-4554-b114-2205c7af8997" Publisher="CN=sirau" Version="1.0.13.0" />
+                <Identity Name="8d15133f-ebb4-4554-b114-2205c7af8997" Publisher="CN=sirau" Version="1.0.18.0" />
                 <Packages>
-                  <Package Type="application" Version="1.0.13.0" Architecture="x86" FileName="PubnubWindowsStore_1.0.13.0_x86.appx" Offset="4073239" Size="3771441">
+                  <Package Type="application" Version="1.0.18.0" Architecture="x86" FileName="PubnubWindowsStore_1.0.18.0_x86.appx" Offset="4097342" Size="3802839">
                     <Resources>
                       <Resource Language="EN-US" />
                       <Resource Scale="200" />
                     </Resources>
                   </Package>
-                  <Package Type="application" Version="1.0.13.0" Architecture="x64" FileName="PubnubWindowsStore_1.0.13.0_x64.appx" Offset="66" Size="4073083">
+                  <Package Type="application" Version="1.0.18.0" Architecture="x64" FileName="PubnubWindowsStore_1.0.18.0_x64.appx" Offset="66" Size="4097186">
                     <Resources>
                       <Resource Language="EN-US" />
                       <Resource Scale="200" />
@@ -227,8 +227,8 @@
     </Installed_Programs>
   </APPLICATIONS>
   <DEPENDENCY_INFORMATION>
-    <AitStaticAnalysis ProgramId="000018e3c8e706ac297371d8914f8d8c15dd00000904" AnalysisVersion="1.60" DictionaryVersion="3.1" Type="Package" Id="8d15133f-ebb4-4554-b114-2205c7af8997_1.0.13.0_x64__pennsxfy7e5pp">
-      <AitFile ErrorCode="0" Name="PubnubWindowsStore.exe" Id="000073367f2f43cdbbdac7eb6f67181c9d4ca115e751" />
+    <AitStaticAnalysis ProgramId="0000d9610eb8b1e3177addc483b81d11617d00000904" AnalysisVersion="1.60" DictionaryVersion="3.1" Type="Package" Id="8d15133f-ebb4-4554-b114-2205c7af8997_1.0.18.0_x64__pennsxfy7e5pp">
+      <AitFile ErrorCode="0" Name="PubnubWindowsStore.exe" Id="00006a5adefe4ce061add2b6248f23278d62251c6251" />
       <AitFile ErrorCode="0" Name="clrcompression.dll" Id="0000d3a784a0b601ab8905ec06f7c8f1e00f131425c2">
         <AitCategory Id="ApiStatic">
           <AitFeature Name="api-ms-win-core-profile-l1-1-0.dll!QueryPerformanceCounter" />
@@ -240,7 +240,7 @@
           <AitFeature Name="api-ms-win-core-processthreads-l1-1-0.dll!GetCurrentThreadId" />
         </AitCategory>
       </AitFile>
-      <AitFile ErrorCode="0" Name="PubnubWindowsStore.dll" Id="0000d4ee65b9568e13c86bf3d763bbc4a2ed6c23bea4">
+      <AitFile ErrorCode="0" Name="PubnubWindowsStore.dll" Id="0000e6dfb1e41539c5f9b828419e5e033c70a767b232">
         <AitCategory Id="Com">
           <AitFeature Name="{00000003-0000-0000-c000-000000000046}" />
           <AitFeature Name="{00020401-0000-0000-c000-000000000046}" />
@@ -264,6 +264,7 @@
           <AitFeature Name="{08524908-16ef-45ad-a602-293637d7e61a}" />
           <AitFeature Name="{08add66d-0e2e-43a0-aeca-8faa94b9d017}" />
           <AitFeature Name="{08e9a257-ae05-489b-8839-28c6225d2349}" />
+          <AitFeature Name="{08f327ff-85d5-48b9-aee9-28511e339f9f}" />
           <AitFeature Name="{09108f87-df6c-4180-9b3a-e60845825811}" />
           <AitFeature Name="{09223e5a-75be-4499-8180-1ddc005421c0}" />
           <AitFeature Name="{09e95afc-3096-50c1-b05a-acae1a8cb92e}" />
@@ -433,6 +434,7 @@
           <AitFeature Name="{58d3573b-f52c-45be-988b-a5869564873c}" />
           <AitFeature Name="{59140509-8bc9-4eb4-b636-dabdc4f46f66}" />
           <AitFeature Name="{594ebe78-55ea-4a88-a50d-3402ae1f9cf2}" />
+          <AitFeature Name="{5984c710-daf2-43c8-8bb4-a4d3eacfd03f}" />
           <AitFeature Name="{59e7ae0c-c29d-5ad6-bef5-dedb52a198e1}" />
           <AitFeature Name="{5a200ec7-0426-47dc-b86c-6f475915e451}" />
           <AitFeature Name="{5a2a7520-4802-452d-9ad9-4351ada7ec35}" />
@@ -805,7 +807,24 @@
           <AitFeature Name="{ffd72e78-ec1f-5bcc-9d13-ff5fbb040562}" />
         </AitCategory>
         <AitCategory Id="ApiStatic">
+          <AitFeature Name="api-ms-win-core-handle-l1-1-0.dll!CloseHandle" />
           <AitFeature Name="api-ms-win-core-com-l1-1-0.dll!CoTaskMemAlloc" />
+          <AitFeature Name="api-ms-win-core-threadpool-l1-2-0.dll!CancelThreadpoolIo" />
+          <AitFeature Name="api-ms-win-core-threadpool-l1-2-0.dll!CloseThreadpoolIo" />
+          <AitFeature Name="api-ms-win-core-threadpool-l1-2-0.dll!CreateThreadpoolIo" />
+          <AitFeature Name="api-ms-win-core-threadpool-l1-2-0.dll!StartThreadpoolIo" />
+          <AitFeature Name="api-ms-win-core-io-l1-1-1.dll!CancelIoEx" />
+          <AitFeature Name="api-ms-win-core-file-l2-1-1.dll!GetFileInformationByHandleEx" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!CreateFile2" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!FindClose" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!FindFirstFileExW" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!FlushFileBuffers" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!GetFileAttributesExW" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!GetFileType" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!ReadFile" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!SetEndOfFile" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!SetFilePointerEx" />
+          <AitFeature Name="api-ms-win-core-file-l1-2-1.dll!WriteFile" />
           <AitFeature Name="api-ms-win-core-localization-l1-2-1.dll!FormatMessageW" />
           <AitFeature Name="api-ms-win-core-localization-l1-2-1.dll!GetCPInfoExW" />
           <AitFeature Name="api-ms-win-core-localization-l1-2-1.dll!IsValidLocaleName" />
@@ -886,6 +905,7 @@
           <AitFeature Name="Windows.ApplicationModel.Package" />
           <AitFeature Name="Windows.Web.Http.HttpRequestMessage" />
           <AitFeature Name="Windows.Globalization.Language" />
+          <AitFeature Name="Windows.Storage.StorageFile" />
           <AitFeature Name="Windows.UI.Xaml.Controls.Frame" />
           <AitFeature Name="Windows.UI.Popups.MessageDialog" />
           <AitFeature Name="Windows.Foundation.Uri" />
@@ -904,6 +924,7 @@
           <AitFeature Name="Windows.UI.Xaml.Markup.XamlReader" />
           <AitFeature Name="Windows.ApplicationModel.Resources.ResourceLoader" />
           <AitFeature Name="Windows.Security.Cryptography.Core.HashAlgorithmProvider" />
+          <AitFeature Name="Windows.Storage.StorageFolder" />
           <AitFeature Name="Windows.Security.Cryptography.CryptographicBuffer" />
           <AitFeature Name="Windows.ApplicationModel.Resources.Core.ResourceManager" />
           <AitFeature Name="Windows.UI.Xaml.VisualStateManager" />

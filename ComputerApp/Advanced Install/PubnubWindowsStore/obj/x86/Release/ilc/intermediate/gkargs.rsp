@@ -1,5 +1,5 @@
-/In:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\in"
-/Lib:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\in"
+/In:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\in"
+/Lib:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\in"
 /Lib:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\x86\ilc\lib\Private"
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\Windows.ApplicationModel.Activation.ActivatedEventsContract\1.0.0.0"
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\Windows.ApplicationModel.Activation.ActivationCameraSettingsContract\1.0.0.0"
@@ -57,6 +57,6 @@
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\Windows.UI.WebUI.Core.WebUICommandBarContract\1.0.0.0"
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\Windows.UI.Xaml.Hosting.HostingContract\1.0.0.0"
 /Lib:"C:\Program Files (x86)\Windows Kits\10\References\Windows.Web.Http.Diagnostics.HttpDiagnosticsContract\1.0.0.0"
-/WinMD:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\PubnubWindowsStore\obj\x86\Release\ilc\in\WinMetadata\Windows.winmd"
+/WinMD:"C:\Users\sirau\Source\Repos\Elite_Dangerous_Ship_Assistant\ComputerApp\Advanced Install\PubnubWindowsStore\obj\x86\Release\ilc\in\WinMetadata\Windows.winmd"
 /RdXmlPath:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\LibraryXML"
 /RunOnlyPreDR
