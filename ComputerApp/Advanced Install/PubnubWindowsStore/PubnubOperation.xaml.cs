@@ -238,6 +238,15 @@ namespace PubnubWindowsStore
             
         }
 
+        void DisplaySubscribeConnectStatusMessage(string result)
+        {
+            
+        }
+        void DisplayErrorMessage(PubnubClientError pubnubError)
+        {
+            
+        }
+
         private async void mainLoop()
         {
             try
@@ -254,6 +263,14 @@ namespace PubnubWindowsStore
             long lastUpdate = 0;
             publishChannel = data.channelName + "A";
             historyChannel = data.channelName + "B";
+
+            pubnub.Subscribe<string>(
+                historyChannel,
+                PubnubHistoryCallbackResult,
+                DisplaySubscribeConnectStatusMessage,
+                DisplayErrorMessage
+            );
+
             while (true)
             {
                 long milliseconds = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
@@ -264,7 +281,7 @@ namespace PubnubWindowsStore
                     //History Commands
                     try
                     {
-                        history(historyChannel);
+                        //history(historyChannel);
                     }
                     catch
                     {
@@ -280,10 +297,11 @@ namespace PubnubWindowsStore
                         string shipInfoText = await FileIO.ReadTextAsync(shipInfo);
                         string publishMsg = shipInfoText.Replace("\\", "");
                         bool storeInHistory = true;
-                        pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
+                        
 
                         if (publishSend != publishMsg)
                         {
+                            pubnub.Publish<string>(publishChannel, publishMsg, storeInHistory, PubnubPublishCallbackResult, PubnubDisplayErrorMessage);
                             publishSend = publishMsg;
                             string shipInfoTextBox = "";
                             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
