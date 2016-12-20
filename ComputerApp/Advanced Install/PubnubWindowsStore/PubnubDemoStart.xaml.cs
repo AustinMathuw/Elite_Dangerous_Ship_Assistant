@@ -42,8 +42,8 @@ namespace PubnubWindowsStore
             PubnubConfigData data = new PubnubConfigData();
             data.ssl = true;
             data.resumeOnReconnect = true;
-            data.publishKey = "pub-c-4ca344c3-e90b-4d78-b9a6-30319a781440"; ///Your publish key goes here
-            data.subscribeKey = "sub-c-f5e683d4-c676-11e6-b82b-0619f8945a4f"; ///Your subscribe key goes here
+            data.publishKey = ""; ///Your publish key goes here
+            data.subscribeKey = ""; ///Your subscribe key goes here
             data.channelName = txtChannelName.Text.Trim();
             var frame = new Frame();
             frame.Navigate(typeof(PubnubOperation), data);

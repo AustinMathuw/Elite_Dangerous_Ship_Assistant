@@ -79,10 +79,6 @@ namespace PubnubWindowsStore
         /// Callback method captures the response in JSON string format for all operations
         /// </summary>
         /// <param name="result"></param>
-        
-
-
-
         /// <summary>
         /// Callback method for error messages
         /// </summary>
