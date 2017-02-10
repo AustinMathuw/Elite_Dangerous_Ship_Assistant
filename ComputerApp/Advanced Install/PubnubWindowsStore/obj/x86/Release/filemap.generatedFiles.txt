@@ -1,2 +1,0 @@
-obj\x86\Release\filemap.pri
-obj\x86\Release\filemap.map.txt
